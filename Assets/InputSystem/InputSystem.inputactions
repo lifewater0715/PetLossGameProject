@@ -3,13 +3,31 @@
     "name": "InputSystem",
     "maps": [
         {
-            "name": "Debug",
-            "id": "cdf5b0e5-e629-4a05-b8ab-a0529f8f20a7",
+            "name": "Input",
+            "id": "31d1778c-0c8e-471b-b09c-20a4113dabc4",
             "actions": [
                 {
-                    "name": "DebugKey",
+                    "name": "Interaction",
                     "type": "Button",
-                    "id": "b7778808-6b6c-4fb5-b791-206e70febc96",
+                    "id": "a926d588-308b-42c8-9a8e-45863456a780",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Point",
+                    "type": "PassThrough",
+                    "id": "a0901737-bea4-4a7e-87b4-22a3c77915c3",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Debug Key",
+                    "type": "Button",
+                    "id": "51d8ecc6-c952-4067-a43c-bd910c4ef40c",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -19,12 +37,34 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "6744f6f7-3762-4480-876a-723a19eb474e",
+                    "id": "fd147dd1-1e06-480f-bb67-27aa5d88b694",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Interaction",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5606e8ec-a7c2-44f3-878d-e16940f3c09b",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Point",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "61d4db00-15df-42c8-927d-649ccdde388c",
                     "path": "<Keyboard>/f",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "DebugKey",
+                    "action": "Debug Key",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
