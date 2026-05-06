@@ -31,18 +31,29 @@ public class FadeManager : MonoBehaviour
 
     public void FadeIn()
     {
-        StartCoroutine(CFadeIn());
+        StartCoroutine(CFadeIn(1f, 0f));
     }
 
     public void FadeOut()
     {
-        StartCoroutine(CFadeOut());
+        StartCoroutine(CFadeOut(0f, 1f));
     }
 
-    private IEnumerator CFadeIn()
+    public void HalfFadeIn()
     {
-        float alpha = 1f;
-        while (alpha > 0f)
+        StartCoroutine(CFadeIn(0.5f, 0f));
+    }
+
+    public void HalfFadeOut()
+    {
+        StartCoroutine(CFadeOut(0f, 0.5f));
+    }
+
+
+    private IEnumerator CFadeIn(float startAlpha, float endAlpha)
+    {
+        float alpha = startAlpha;
+        while (alpha > endAlpha)
         {
             alpha -= 0.01f;
             yield return new WaitForSeconds(0.01f);
@@ -51,11 +62,11 @@ public class FadeManager : MonoBehaviour
         fadeScreen.gameObject.SetActive(false);
     }
 
-    private IEnumerator CFadeOut()
+    private IEnumerator CFadeOut(float startAlpha, float endAlpha)
     {
         fadeScreen.gameObject.SetActive(true);
-        float alpha = 0f;
-        while (alpha < 1f)
+        float alpha = startAlpha;
+        while (alpha < endAlpha)
         {
             alpha += 0.01f;
             yield return new WaitForSeconds(0.01f);

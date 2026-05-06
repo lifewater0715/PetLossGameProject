@@ -3,14 +3,12 @@ using UnityEngine;
 public class PropsInteractor : MonoBehaviour
 {
     [SerializeField] private Camera mainCam;
-    [SerializeField] private PropsValidator propsValidator;
 
 #if UNITY_EDITOR
     [ContextMenu("Auto Assign")]
     private void AutoAssign()
     {
         mainCam = GameObject.Find("Main Camera").GetComponent<Camera>();
-        propsValidator = GetComponent<PropsValidator>();
     }
 #endif
 
@@ -28,8 +26,13 @@ public class PropsInteractor : MonoBehaviour
         mousePos.z = 0;
         Vector2 point = mousePos;
 
-        if (!propsValidator.GetTargetLayer(point)) return;
+        Collider2D hit = Physics2D.OverlapPoint(point);
+        if (hit == null) return;
 
-        Debug.Log("입력 감지 성공!");
+        PropsInfo props = hit.GetComponent<PropsInfo>();
+        if (props == null) return;
+
+        props.Interaction();
+
     }
 }

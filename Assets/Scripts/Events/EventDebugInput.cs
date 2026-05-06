@@ -12,5 +12,13 @@ public class EventDebugInput : MonoBehaviour
         {
             FadeManager.Instance.FadeOut();
         }
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            FadeManager.Instance.HalfFadeIn();
+        }
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            FadeManager.Instance.HalfFadeOut();
+        }
     }
 }
