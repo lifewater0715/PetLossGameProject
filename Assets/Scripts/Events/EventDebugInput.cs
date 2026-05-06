@@ -6,11 +6,11 @@ public class EventDebugInput : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
-            FadeManager.instance.FadeIn();
+            FadeManager.Instance.FadeIn();
         }
         if (Input.GetKeyDown(KeyCode.G))
         {
-            FadeManager.instance.FadeOut();
+            FadeManager.Instance.FadeOut();
         }
     }
 }

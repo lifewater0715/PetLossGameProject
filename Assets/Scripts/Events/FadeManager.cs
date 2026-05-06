@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class FadeManager : MonoBehaviour
 {
-    public static FadeManager instance;
+    public static FadeManager Instance { get; private set; }
     [SerializeField] private Image fadeScreen;
 
 #if UNITY_EDITOR
@@ -17,9 +17,9 @@ public class FadeManager : MonoBehaviour
 
     private void Awake()
     {
-        if (instance == null)
+        if (Instance == null)
         {
-            instance = this;
+            Instance = this;
             DontDestroyOnLoad(gameObject);
         }
         else
