@@ -29,6 +29,12 @@ public class FadeManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        
+        FadeIn();
+    }
+
     public void FadeIn()
     {
         StartCoroutine(CFadeIn(1f, 0f));
@@ -52,6 +58,7 @@ public class FadeManager : MonoBehaviour
 
     private IEnumerator CFadeIn(float startAlpha, float endAlpha)
     {
+        fadeScreen.gameObject.SetActive(true);
         float alpha = startAlpha;
         while (alpha > endAlpha)
         {
