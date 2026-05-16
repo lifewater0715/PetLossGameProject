@@ -2,23 +2,23 @@ using UnityEngine;
 
 public class PropsDirector : MonoBehaviour
 {
-
-    public void PlayEvent(PropsInfo propsInfo)
+    public bool TryPlayEvent(PropsInfo propsInfo)
     {
+        if (propsInfo == null) return false;
 
-        if (propsInfo.GetRequiredTurn != PropsTurn.Turn)
+        if (!propsInfo.CanInteract(PropsTurn.Turn))
         {
             Debug.Log("상호 작용 불가능");
-            return;
+            return false;
         }
 
-        if (propsInfo.GetPropsEvent == null)
+        if (!propsInfo.TryPlayEvent())
         {
             Debug.Log("이벤트 없음");
-            return;
+            return false;
         }
-        
-        propsInfo.GetPropsEvent.Play();
+
         PropsTurn.NextTurn();
+        return true;
     }
 }

@@ -3,12 +3,14 @@ using UnityEngine;
 public class PropsInteractor : MonoBehaviour
 {
     [SerializeField] private Camera mainCam;
+    [SerializeField] private PropsDirector propsDirector;
 
 #if UNITY_EDITOR
     [ContextMenu("Auto Assign")]
     private void AutoAssign()
     {
         mainCam = GameObject.Find("Main Camera").GetComponent<Camera>();
+        propsDirector = GameObject.Find("PropsDirector").GetComponent<PropsDirector>();
     }
 #endif
 
@@ -22,6 +24,10 @@ public class PropsInteractor : MonoBehaviour
 
     private void TryInteraction()
     {
+        if (mainCam == null) return;
+        
+        if (propsDirector == null) return;
+
         Vector3 mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = 0;
         Vector2 point = mousePos;
@@ -32,7 +38,6 @@ public class PropsInteractor : MonoBehaviour
         PropsInfo props = hit.GetComponent<PropsInfo>();
         if (props == null) return;
 
-        props.Interaction();
-
+        propsDirector.TryPlayEvent(props);
     }
 }

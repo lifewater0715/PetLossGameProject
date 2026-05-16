@@ -6,4 +6,9 @@ public static class PropsTurn
     {
         Turn++;
     }
+
+    public static void Reset()
+    {
+        Turn = 1;
+    }
 }
