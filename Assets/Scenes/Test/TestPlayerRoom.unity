@@ -272,7 +272,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PropsInfo
   requiredTurn: 4
-  propsDirector: {fileID: 1372824458}
 --- !u!114 &197918685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -438,7 +437,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PropsInfo
   requiredTurn: 5
-  propsDirector: {fileID: 1372824458}
 --- !u!114 &307231489
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -604,7 +602,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PropsInfo
   requiredTurn: 2
-  propsDirector: {fileID: 1372824458}
 --- !u!114 &790658444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1001,7 +998,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PropsInfo
   requiredTurn: 3
-  propsDirector: {fileID: 1372824458}
 --- !u!114 &2070961154
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1096,7 +1092,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PropsInfo
   requiredTurn: 1
-  propsDirector: {fileID: 1372824458}
 --- !u!61 &5556587032563916665
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1249,6 +1244,10 @@ PrefabInstance:
       propertyPath: mainCam
       value: 
       objectReference: {fileID: 941322386}
+    - target: {fileID: 6105754524495545257, guid: f194f632fa04f8f4a83812c725f45a3f, type: 3}
+      propertyPath: propsDirector
+      value: 
+      objectReference: {fileID: 1372824458}
     - target: {fileID: 7773224526299237557, guid: f194f632fa04f8f4a83812c725f45a3f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10.046518
