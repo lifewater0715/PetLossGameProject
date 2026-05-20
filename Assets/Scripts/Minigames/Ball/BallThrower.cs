@@ -5,21 +5,20 @@ public class BallThrower : MonoBehaviour
     [SerializeField] private BallInput ballInput;
     [SerializeField] private Transform throwPoint;
     [SerializeField] private Rigidbody2D ballRigid;
-    [SerializeField] private Camera mainCam;
 
     private void OnEnable()
     {
-        ballInput.onThrow += Throw;
+        ballInput.OnThrow += Throw;
     }
 
     private void OnDisable()
     {
-        ballInput.onThrow -= Throw;
+        ballInput.OnThrow -= Throw;
     }
 
     private void Throw(float power)
     {
-        ballRigid.transform.position = transform.position;
+        ballRigid.transform.position = throwPoint.position;
 
         ballRigid.linearVelocity = GetThrowVelocity(power);
     }
