@@ -56,4 +56,9 @@ public class CamFollowTarget : MonoBehaviour
     {
         target = newTarget;
     }
+
+    public void SetCamSmoothTime(float value)
+    {
+        smoothTime = value;
+    }
 }

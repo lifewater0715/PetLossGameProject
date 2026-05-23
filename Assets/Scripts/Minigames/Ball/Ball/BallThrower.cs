@@ -5,6 +5,12 @@ public class BallThrower : MonoBehaviour
     [SerializeField] private BallInput ballInput;
     [SerializeField] private Transform throwPoint;
     [SerializeField] private Rigidbody2D ballRigid;
+    [SerializeField] private DogTargetBall dogTargetBall;
+
+    private void Start()
+    {
+        ballRigid.gameObject.SetActive(false);
+    }
 
     private void OnEnable()
     {
@@ -18,6 +24,10 @@ public class BallThrower : MonoBehaviour
 
     private void Throw(float power)
     {
+        ballRigid.gameObject.SetActive(true);
+        
+        dogTargetBall.StartTracking();
+
         ballRigid.transform.position = throwPoint.position;
 
         ballRigid.linearVelocity = GetThrowVelocity(power);
