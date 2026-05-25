@@ -6,6 +6,8 @@ public class BallThrower : MonoBehaviour
     [SerializeField] private Transform throwPoint;
     [SerializeField] private Rigidbody2D ballRigid;
 
+    [SerializeField] private float spinPower = -720f;
+
 #if UNITY_EDITOR
     [ContextMenu("Auto Assign")]
     private void AutoAssign()
@@ -38,9 +40,12 @@ public class BallThrower : MonoBehaviour
     private void Throw(float power)
     {
         ballThrowController.SetCanThrow(false);
+
         ballRigid.gameObject.SetActive(true);
         ballRigid.transform.position = throwPoint.position;
         ballRigid.linearVelocity = GetThrowVelocity(power);
+
+        ballRigid.angularVelocity = spinPower;
     }
 
     private Vector2 GetThrowVelocity(float power)
