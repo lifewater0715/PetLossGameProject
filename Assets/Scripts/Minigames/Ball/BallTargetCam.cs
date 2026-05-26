@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class BallTargetCam : MonoBehaviour
@@ -47,8 +48,24 @@ public class BallTargetCam : MonoBehaviour
 
     private void OnMarkingTarget()
     {
-        camFollowTarget.SetCamSmoothTime(0f);
+        StartCoroutine(COnMarkingTarget());
+    }
+
+    private IEnumerator COnMarkingTarget()
+    {
+        float smoothTime = 0.2f;
+        float smoothTimeDelay = 0.01f;
+
+        camFollowTarget.SetCamSmoothTime(smoothTime);
         camFollowTarget.SetCamTarget(markerObj);
+
+        while (smoothTime > 0)
+        {
+            smoothTime -= smoothTimeDelay;
+            Debug.Log(smoothTime);
+            yield return new WaitForSeconds(smoothTimeDelay);
+            camFollowTarget.SetCamSmoothTime(smoothTime);
+        }
     }
 
     public void OnCenterTarget()
