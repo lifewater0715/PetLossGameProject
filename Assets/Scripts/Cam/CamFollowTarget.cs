@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class CamFollowTarget : MonoBehaviour
@@ -60,5 +61,25 @@ public class CamFollowTarget : MonoBehaviour
     public void SetCamSmoothTime(float value)
     {
         smoothTime = value;
+    }
+
+    public void OnCamSmoothTarget(Transform targetObj, float smoothTime)
+    {
+        StartCoroutine(COnCamSmoothTarget(targetObj, smoothTime));
+    }
+
+    private IEnumerator COnCamSmoothTarget(Transform targetObj, float smoothTime)
+    {
+        float smoothTimeDelay = 0.01f;
+
+        SetCamSmoothTime(smoothTime);
+        SetCamTarget(targetObj);
+
+        while (smoothTime > 0)
+        {
+            smoothTime -= smoothTimeDelay;
+            yield return new WaitForSeconds(smoothTimeDelay);
+            SetCamSmoothTime(smoothTime);
+        }
     }
 }

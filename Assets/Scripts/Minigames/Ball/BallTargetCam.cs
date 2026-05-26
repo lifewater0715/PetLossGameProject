@@ -48,24 +48,7 @@ public class BallTargetCam : MonoBehaviour
 
     private void OnMarkingTarget()
     {
-        StartCoroutine(COnMarkingTarget());
-    }
-
-    private IEnumerator COnMarkingTarget()
-    {
-        float smoothTime = 0.2f;
-        float smoothTimeDelay = 0.01f;
-
-        camFollowTarget.SetCamSmoothTime(smoothTime);
-        camFollowTarget.SetCamTarget(markerObj);
-
-        while (smoothTime > 0)
-        {
-            smoothTime -= smoothTimeDelay;
-            Debug.Log(smoothTime);
-            yield return new WaitForSeconds(smoothTimeDelay);
-            camFollowTarget.SetCamSmoothTime(smoothTime);
-        }
+        camFollowTarget.OnCamSmoothTarget(markerObj, 0.2f);
     }
 
     public void OnCenterTarget()
