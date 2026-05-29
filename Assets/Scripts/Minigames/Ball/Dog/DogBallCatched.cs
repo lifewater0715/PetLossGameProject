@@ -7,6 +7,7 @@ public class DogBallCatched : MonoBehaviour
     [SerializeField] private LayerMask ballLayer;
     [SerializeField] private CamFollowTarget camFollowTarget;
     [SerializeField] private BallTargetCam ballTargetCam;
+    [SerializeField] private BallInput ballInput;
 
     [SerializeField] private BallSystemManager ballSystemManager;
 
@@ -53,5 +54,7 @@ public class DogBallCatched : MonoBehaviour
 
         ballSystemManager.DogPositionReset();
         ballSystemManager.TurnCheck();
+
+        ballInput.ReadyToThrowing();
     }
 }

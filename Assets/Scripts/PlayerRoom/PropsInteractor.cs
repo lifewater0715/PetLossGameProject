@@ -16,6 +16,8 @@ public class PropsInteractor : MonoBehaviour
 
     private void Update()
     {
+        if (FadeManager.Instance.IsFading) return;
+        
         if (Input.GetMouseButtonDown(0))
         {
             TryInteraction();

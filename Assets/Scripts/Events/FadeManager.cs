@@ -7,6 +7,9 @@ public class FadeManager : MonoBehaviour
     public static FadeManager Instance { get; private set; }
     [SerializeField] private Image fadeScreen;
 
+    private bool isFading = false;
+    public bool IsFading => isFading;
+
 #if UNITY_EDITOR
     [ContextMenu("Auto Assign")]
     private void AutoAssign()
@@ -31,7 +34,6 @@ public class FadeManager : MonoBehaviour
 
     private void Start()
     {
-        
         FadeIn();
     }
 
@@ -67,11 +69,13 @@ public class FadeManager : MonoBehaviour
             fadeScreen.color = new Color(0f, 0f, 0f, alpha);
         }
         fadeScreen.gameObject.SetActive(false);
+        isFading = false;
     }
 
     private IEnumerator CFadeOut(float startAlpha, float endAlpha)
     {
         fadeScreen.gameObject.SetActive(true);
+        isFading = true;
         float alpha = startAlpha;
         while (alpha < endAlpha)
         {

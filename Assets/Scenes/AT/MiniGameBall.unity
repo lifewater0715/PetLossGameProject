@@ -254,6 +254,7 @@ MonoBehaviour:
     m_Bits: 256
   camFollowTarget: {fileID: 385251751}
   ballTargetCam: {fileID: 1835360439}
+  ballInput: {fileID: 1717135589}
   ballSystemManager: {fileID: 1726038325}
 --- !u!114 &322562236
 MonoBehaviour:
@@ -1099,8 +1100,10 @@ MonoBehaviour:
   beginningDogTransform: {fileID: 1332615949}
   dogObj: {fileID: 322562233}
   ballThrowController: {fileID: 2109453730}
-  ballDogAnimation: {fileID: 322562237}
   ballPlayerAnimation: {fileID: 1142176997}
+  ballDogAnimation: {fileID: 322562237}
+  turn: 0
+  nextSceneName: PlayerRoom
 --- !u!1 &1835360438
 GameObject:
   m_ObjectHideFlags: 0

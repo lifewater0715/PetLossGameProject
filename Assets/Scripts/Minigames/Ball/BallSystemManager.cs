@@ -12,6 +12,7 @@ public class BallSystemManager : MonoBehaviour
 
     [Header("턴")]
     [SerializeField] private int turn = 0;
+    [SerializeField] private string nextSceneName = "PlayerRoom";
 
     public void DogPositionReset()
     {
@@ -27,5 +28,7 @@ public class BallSystemManager : MonoBehaviour
     {
         if (turn < 3 ) return;
         Debug.Log("턴 종료");
+
+        SceneLoadManager.Instance.LoadScene(nextSceneName);
     }
 }
