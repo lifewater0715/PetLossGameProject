@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66bc3ce4885990c40a88f80fe0ad0101, type: 3}
   m_Name: LightSkin
   m_EditorClassIdentifier: 
-  m_font: {fileID: 11400000, guid: 1dfe72cf933ffb749aa5f887326351a5, type: 2}
+  m_font: {fileID: 11400000, guid: d484a7135c405f94fbe56e7689e564a3, type: 2}
   m_fontSize: 14
   m_rowHeight: 30
   m_rowSpacing: 8
