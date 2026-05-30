@@ -6,7 +6,7 @@ public class TugInput : MonoBehaviour
 
     private void Update()
     {
-        if (FadeManager.Instance.IsFading) return;
+        if (FadeManager.Instance != null && FadeManager.Instance.IsFading) return;
         
         if (Input.GetKeyDown(KeyCode.Space))
         {
