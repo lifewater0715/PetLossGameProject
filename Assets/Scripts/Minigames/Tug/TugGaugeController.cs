@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class TugGaugeController : MonoBehaviour
 {
-    [SerializeField] private float dogPower = 1f;
-    [SerializeField] private float chargeSpeed = 1f;
+    [SerializeField] private float dogPower = 6f;
+    [SerializeField] private float chargeSpeed = 4f;
 
     private float _gauge = 50f;
     private bool _dogPull = true;
@@ -11,6 +11,7 @@ public class TugGaugeController : MonoBehaviour
     public float Gauge => _gauge;
     public float NormalizedGauge => _gauge / 100f;
     public bool IsDogPulling => _dogPull;
+    public bool IsPlayerPulling => !_dogPull;
 
     private void Update()
     {
@@ -23,18 +24,18 @@ public class TugGaugeController : MonoBehaviour
 
         if (_gauge == 0 ) return;
 
-        _gauge -= Time.deltaTime * dogPower;
+        _gauge += Time.deltaTime * dogPower;
         Debug.Log(_gauge);
-        if (_gauge < 0) _gauge = 0f;
+        if (_gauge > 100f) _gauge = 90f;
     }
 
     public void OnChargedGauge()
     {
         if (_gauge == 100f) return;
 
-        _gauge += Time.deltaTime * chargeSpeed;
+        _gauge -= Time.deltaTime * chargeSpeed;
         Debug.Log(_gauge);
-        if (_gauge > 100f) _gauge = 100f;
+        if (_gauge < 0f) _gauge = 10f;
     }
 
     public void SetDogPull(bool value)
