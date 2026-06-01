@@ -520,6 +520,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShampooSystemManager
   cursorEvent: {fileID: 905570045}
   cursorBtn: {fileID: 1374815090}
+  shampooDogAnimation: {fileID: 1739930451}
+  chargeShampooSpeed: 100
+  chargeShowerSpeed: 100
+  chargeTowelSpeed: 100
 --- !u!1 &310086985
 GameObject:
   m_ObjectHideFlags: 0
@@ -1164,6 +1168,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1739930448}
+  - component: {fileID: 1739930451}
   - component: {fileID: 1739930447}
   - component: {fileID: 1739930449}
   - component: {fileID: 1739930450}
@@ -1316,6 +1321,18 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 3.8400989, y: 5.3857336}
   m_EdgeRadius: 0
+--- !u!114 &1739930451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1739930446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87757bdfef002b9479fccd815f60ee07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ShampooDogAnimation
 --- !u!1 &1778244577
 GameObject:
   m_ObjectHideFlags: 0
