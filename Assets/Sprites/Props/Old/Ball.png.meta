@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 2e88b1ea3b6036c46a060d7f5cca632f
+guid: 71e73f3547c3ddf4d95172d5d17d6edc
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1072894284061189931
-    second: Player_Tug_ldle_04_0
+      213: -3919779002189068522
+    second: Ball_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 250
+  spritePixelsToUnits: 1500
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Player_Tug_ldle_04_0
+      name: Ball_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 183
-        width: 2497
-        height: 1245
+        x: 2007
+        y: 1205
+        width: 1548
+        height: 1513
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b27a30bbaafa3ee00800000000000000
-      internalID: 1072894284061189931
+      spriteID: 6174c70f3c52a99c0800000000000000
+      internalID: -3919779002189068522
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Player_Tug_ldle_04_0: 1072894284061189931
+      Ball_0: -3919779002189068522
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

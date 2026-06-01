@@ -5,28 +5,43 @@ public class TugVisualController : MonoBehaviour
 {
     [SerializeField] private TugGaugeController tugGaugeController;
     [SerializeField] private Transform dogRoot;
-    [SerializeField] private Transform dogShakeVisual;
+    [SerializeField] private Transform dogShakeVisualTop;
+    [SerializeField] private Transform dogShakeVisualBottom;
     [SerializeField] private List<Transform> dogMovePoints = new List<Transform>();
-    [SerializeField] private SpriteRenderer dogSpriteRenderer;
-    [SerializeField] private Sprite dogIdleSprite;
-    [SerializeField] private Sprite dogPlayerPullSprite;
+    [SerializeField] private SpriteRenderer dogSpriteRendererTop;
+    [SerializeField] private SpriteRenderer dogSpriteRendererBottom;
+    [SerializeField] private Sprite dogIdleSpriteTop;
+    [SerializeField] private Sprite dogIdleSpriteBottom;
+    [SerializeField] private Sprite dogPlayerPullSpriteTop;
+    [SerializeField] private Sprite dogPlayerPullSpriteBottom;
     [SerializeField] private Transform armTugVisual;
     [SerializeField] private SpriteRenderer armTugSpriteRenderer;
     [SerializeField] private Sprite[] armTugSprites;
-    [SerializeField] private TugSpriteShake dogShake;
+    [SerializeField] private TugSpriteShake dogShakeTop;
+    [SerializeField] private TugSpriteShake dogShakeBottom;
     [SerializeField] private TugSpriteShake armTugShake;
     [SerializeField] private float maxShakeStrength = 1f;
 
     private void Awake()
     {
-        if (dogShakeVisual != null && dogShake == null)
+        if (dogShakeVisualTop != null && dogShakeTop == null)
         {
-            dogShake = dogShakeVisual.GetComponent<TugSpriteShake>();
+            dogShakeTop = dogShakeVisualTop.GetComponent<TugSpriteShake>();
         }
 
-        if (dogShakeVisual != null && dogSpriteRenderer == null)
+        if (dogShakeVisualBottom != null && dogShakeBottom == null)
         {
-            dogSpriteRenderer = dogShakeVisual.GetComponent<SpriteRenderer>();
+            dogShakeBottom = dogShakeVisualBottom.GetComponent<TugSpriteShake>();
+        }
+
+        if (dogShakeVisualTop != null && dogSpriteRendererTop == null)
+        {
+            dogSpriteRendererTop = dogShakeVisualTop.GetComponent<SpriteRenderer>();
+        }
+
+        if (dogShakeVisualBottom != null && dogSpriteRendererBottom == null)
+        {
+            dogSpriteRendererBottom = dogShakeVisualBottom.GetComponent<SpriteRenderer>();
         }
 
         if (armTugVisual != null)
@@ -70,21 +85,19 @@ public class TugVisualController : MonoBehaviour
 
     private void UpdateDogSprite()
     {
-        if (dogSpriteRenderer == null) return;
+        if (dogSpriteRendererTop == null || dogSpriteRendererBottom == null) return;
 
         if (tugGaugeController.IsPlayerPulling)
         {
-            if (dogPlayerPullSprite != null)
-            {
-                dogSpriteRenderer.sprite = dogPlayerPullSprite;
-            }
+            if (dogPlayerPullSpriteTop != null) dogSpriteRendererTop.sprite = dogPlayerPullSpriteTop;
+
+            if (dogPlayerPullSpriteBottom != null) dogSpriteRendererBottom.sprite = dogPlayerPullSpriteBottom;
         }
         else
         {
-            if (dogIdleSprite != null)
-            {
-                dogSpriteRenderer.sprite = dogIdleSprite;
-            }
+            if (dogIdleSpriteTop != null) dogSpriteRendererTop.sprite = dogIdleSpriteTop;
+
+            if (dogIdleSpriteBottom != null) dogSpriteRendererBottom.sprite = dogIdleSpriteBottom;
         }
     }
 
@@ -110,9 +123,14 @@ public class TugVisualController : MonoBehaviour
 
         shakeStrength = Mathf.Clamp01(shakeStrength);
 
-        if (dogShake != null)
+        if (dogShakeTop != null)
         {
-            dogShake.SetShakeStrength(shakeStrength);
+            dogShakeTop.SetShakeStrength(shakeStrength);
+        }
+
+        if (dogShakeBottom != null)
+        {
+            dogShakeBottom.SetShakeStrength(shakeStrength);
         }
 
         if (armTugShake != null)

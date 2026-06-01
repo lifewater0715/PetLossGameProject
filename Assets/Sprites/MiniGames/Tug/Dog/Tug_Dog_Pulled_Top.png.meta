@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 168d497861b7f1746a12ae29f10bb048
+guid: 659a8ca7c5333004db86cc02d135bad0
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8397571251059585838
-    second: Player_Tug_ldle_03_0
+      213: 2110074736679199495
+    second: Tug_Dog_Pull_Top_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Player_Tug_ldle_03_0
+      name: Tug_Dog_Pull_Top_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 87
-        width: 2301
-        height: 1324
+        x: 413
+        y: 704
+        width: 1166
+        height: 801
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e2370738f8a2a8470800000000000000
-      internalID: 8397571251059585838
+      spriteID: 7032a491bcd784d10800000000000000
+      internalID: 2110074736679199495
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Player_Tug_ldle_03_0: 8397571251059585838
+      Tug_Dog_Pull_Top_0: 2110074736679199495
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

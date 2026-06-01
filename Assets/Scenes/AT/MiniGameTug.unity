@@ -119,6 +119,115 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &364101215
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 364101216}
+  - component: {fileID: 364101218}
+  - component: {fileID: 364101217}
+  m_Layer: 0
+  m_Name: SpriteBottom
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &364101216
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 364101215}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.1, y: 0.48, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1295733288}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &364101217
+SpriteRenderer:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 364101215}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 2
+  m_MaskInteraction: 0
+  m_Sprite: {fileID: 21300000, guid: bbdc96654bc5f2e42a042307079a8fac, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 7.924, y: 7.036}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_SpriteSortPoint: 0
+--- !u!114 &364101218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 364101215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86554a0f520248548b7c3de846f0383a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TugSpriteShake
+  playOnStart: 1
+  shakeDirection: {x: 1, y: 0.2}
+  positionAmount: 0.03
+  rotationAmount: 2
+  frequency: 25
 --- !u!1 &398664982
 GameObject:
   m_ObjectHideFlags: 0
@@ -424,7 +533,7 @@ GameObject:
   - component: {fileID: 1166855622}
   - component: {fileID: 1166855620}
   m_Layer: 0
-  m_Name: Sprite
+  m_Name: SpriteTop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -477,14 +586,14 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 4
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 28def93189ab7c94fb182fc740e1efd9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 260c2c00ab280324a975dd8f8e9365b3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 7.924, y: 7.036}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -546,11 +655,12 @@ Transform:
   m_GameObject: {fileID: 1295733287}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.45, y: 0, z: 0}
+  m_LocalPosition: {x: 2.45, y: 0.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1166855621}
+  - {fileID: 364101216}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1439413288
@@ -700,7 +810,7 @@ Transform:
   m_GameObject: {fileID: 1722201480}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -809,9 +919,9 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 2e88b1ea3b6036c46a060d7f5cca632f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1c151ad24273fa24187916abd9676ec8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -914,7 +1024,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TugVisualController
   tugGaugeController: {fileID: 1982391410}
   dogRoot: {fileID: 1295733288}
-  dogShakeVisual: {fileID: 1166855621}
+  dogShakeVisualTop: {fileID: 1166855621}
+  dogShakeVisualBottom: {fileID: 364101216}
   dogMovePoints:
   - {fileID: 423998615}
   - {fileID: 1996340192}
@@ -923,20 +1034,24 @@ MonoBehaviour:
   - {fileID: 1709266625}
   - {fileID: 958776463}
   - {fileID: 571793441}
-  dogSpriteRenderer: {fileID: 1166855620}
-  dogIdleSprite: {fileID: 21300000, guid: 696d52238266945498b5945edd031df1, type: 3}
-  dogPlayerPullSprite: {fileID: 21300000, guid: 28def93189ab7c94fb182fc740e1efd9, type: 3}
+  dogSpriteRendererTop: {fileID: 1166855620}
+  dogSpriteRendererBottom: {fileID: 364101217}
+  dogIdleSpriteTop: {fileID: 21300000, guid: 260c2c00ab280324a975dd8f8e9365b3, type: 3}
+  dogIdleSpriteBottom: {fileID: 21300000, guid: bbdc96654bc5f2e42a042307079a8fac, type: 3}
+  dogPlayerPullSpriteTop: {fileID: 21300000, guid: 659a8ca7c5333004db86cc02d135bad0, type: 3}
+  dogPlayerPullSpriteBottom: {fileID: 21300000, guid: 0c016a564f6205a4fb7199b174711d57, type: 3}
   armTugVisual: {fileID: 1004254376}
   armTugSpriteRenderer: {fileID: 1943360411}
   armTugSprites:
-  - {fileID: 21300000, guid: b200e9307f639a1438a71bef847b7d26, type: 3}
-  - {fileID: 21300000, guid: 32d1727fb101c6643af9902c519aadfb, type: 3}
-  - {fileID: 21300000, guid: 168d497861b7f1746a12ae29f10bb048, type: 3}
-  - {fileID: 21300000, guid: 2e88b1ea3b6036c46a060d7f5cca632f, type: 3}
-  - {fileID: 21300000, guid: 4ea8b3e2bab129749b6a43472ac9c2a2, type: 3}
-  - {fileID: 21300000, guid: 5da1e8e35b49c5c41bc06a78b3728d9a, type: 3}
-  - {fileID: 21300000, guid: e668e2ac7c050ca45b0c0d1a0831706c, type: 3}
-  dogShake: {fileID: 1166855622}
+  - {fileID: 21300000, guid: 1ac55767b0a73ec40984236ca52a85f8, type: 3}
+  - {fileID: 21300000, guid: 143554786c4099645aae0472845425c1, type: 3}
+  - {fileID: 21300000, guid: 9fa5ec47eed177f4399c3be378eb97e1, type: 3}
+  - {fileID: 21300000, guid: 1c151ad24273fa24187916abd9676ec8, type: 3}
+  - {fileID: 21300000, guid: 6c2ea0b4ddc6c064da33c32f29325386, type: 3}
+  - {fileID: 21300000, guid: 35cb1e82e540556468566681e588b047, type: 3}
+  - {fileID: 21300000, guid: db1c4bc6b71faa14199e10f37008120f, type: 3}
+  dogShakeTop: {fileID: 1166855622}
+  dogShakeBottom: {fileID: 364101218}
   armTugShake: {fileID: 1943360413}
   maxShakeStrength: 1
 --- !u!1 &1996340191

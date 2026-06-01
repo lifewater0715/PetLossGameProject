@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 61a12f8f5fad68b4099ee3e11e5d4c2e
+guid: d973d3c9ef626da4fbd548bb1a911f2d
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -103,10 +103,10 @@ TextureImporter:
       name: Leash_0
       rect:
         serializedVersion: 2
-        x: 1973
-        y: 1407
-        width: 1580
-        height: 1155
+        x: 1864
+        y: 1086
+        width: 1921
+        height: 1406
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

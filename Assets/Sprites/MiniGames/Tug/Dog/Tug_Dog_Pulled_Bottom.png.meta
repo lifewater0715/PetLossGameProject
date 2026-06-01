@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 32d1727fb101c6643af9902c519aadfb
+guid: 0c016a564f6205a4fb7199b174711d57
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3032074942869876143
-    second: Player_Tug_ldle_02_0
+      213: -698607936636268610
+    second: Tug_Dog_Bottom_0
+  - first:
+      213: 4939752208981777906
+    second: Tug_Dog_Bottom_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +40,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -100,13 +103,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Player_Tug_ldle_02_0
+      name: Tug_Dog_Bottom_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 2113
-        height: 1361
+        x: 250
+        y: 720
+        width: 15
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +118,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 152d0e177e7ebe5d0800000000000000
-      internalID: -3032074942869876143
+      spriteID: ebfc68378cb0e46f0800000000000000
+      internalID: -698607936636268610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tug_Dog_Bottom_1
+      rect:
+        serializedVersion: 2
+        x: 428
+        y: 325
+        width: 1154
+        height: 794
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2fd5fce46768d8440800000000000000
+      internalID: 4939752208981777906
       vertices: []
       indices: 
       edges: []
@@ -135,7 +160,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Player_Tug_ldle_02_0: -3032074942869876143
+      Tug_Dog_Bottom_0: -698607936636268610
+      Tug_Dog_Bottom_1: 4939752208981777906
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

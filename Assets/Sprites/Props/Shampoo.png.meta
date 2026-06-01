@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 85cf4c1eb3ba6b148b0f4dd7198a2a58
+guid: 99aeed64269b2cb478eca09986f410a0
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -103,10 +103,10 @@ TextureImporter:
       name: Shampoo_0
       rect:
         serializedVersion: 2
-        x: 2328
-        y: 938
-        width: 777
-        height: 1818
+        x: 2192
+        y: 974
+        width: 780
+        height: 1827
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

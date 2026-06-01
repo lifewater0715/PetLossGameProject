@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: e668e2ac7c050ca45b0c0d1a0831706c
+guid: 1ac55767b0a73ec40984236ca52a85f8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7265509027851991739
-    second: Player_Tug_ldle_07_0
+      213: -2082068002889006976
+    second: Player_Tug_Idle_01_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Player_Tug_ldle_07_0
+      name: Player_Tug_Idle_01_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 448
-        width: 2934
-        height: 992
+        y: 0
+        width: 2029
+        height: 1331
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5450d72980abb2b90800000000000000
-      internalID: -7265509027851991739
+      spriteID: 0800891ce220b13e0800000000000000
+      internalID: -2082068002889006976
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Player_Tug_ldle_07_0: -7265509027851991739
+      Player_Tug_Idle_01_0: -2082068002889006976
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

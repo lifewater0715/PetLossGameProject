@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: b200e9307f639a1438a71bef847b7d26
+guid: 1c151ad24273fa24187916abd9676ec8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6529930852358420057
-    second: Player_Tug_ldle_01_0
-  - first:
-      213: -5584641928020162659
-    second: Player_Tug_ldle_01_1
+      213: -3282013347623154368
+    second: Player_Tug_Idle_04_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -40,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -103,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Player_Tug_ldle_01_0
+      name: Player_Tug_Idle_04_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 1949
-        height: 1331
+        y: 183
+        width: 2570
+        height: 1245
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,30 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7a90051ac760165a0800000000000000
-      internalID: -6529930852358420057
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Player_Tug_ldle_01_1
-      rect:
-        serializedVersion: 2
-        x: 2002
-        y: 736
-        width: 23
-        height: 51
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d970b9251cd5f72b0800000000000000
-      internalID: -5584641928020162659
+      spriteID: 04dc4dacf32f372d0800000000000000
+      internalID: -3282013347623154368
       vertices: []
       indices: 
       edges: []
@@ -160,8 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Player_Tug_ldle_01_0: -6529930852358420057
-      Player_Tug_ldle_01_1: -5584641928020162659
+      Player_Tug_Idle_04_0: -3282013347623154368
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
