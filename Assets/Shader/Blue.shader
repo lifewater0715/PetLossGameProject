@@ -1,52 +1,96 @@
-Shader "Hidden/Blue"
+Shader "Custom/UIBackgroundBlur"
 {
     Properties
     {
-        _MainTex ("Texture", 2D) = "white" {}
+        [PerRendererData] _MainTex ("Mask Texture", 2D) = "white" {}
+        _Color ("Tint", Color) = (1, 1, 1, 0.85)
+        _BlurSize ("Blur Size", Range(0, 8)) = 2
     }
+
     SubShader
     {
-        // No culling or depth
-        Cull Off ZWrite Off ZTest Always
+        Tags
+        {
+            "Queue" = "Transparent"
+            "RenderType" = "Transparent"
+            "RenderPipeline" = "UniversalPipeline"
+            "IgnoreProjector" = "True"
+        }
 
         Pass
         {
-            CGPROGRAM
-            #pragma vertex vert
-            #pragma fragment frag
+            Name "BackgroundBlur"
+            Tags { "LightMode" = "UniversalForward" }
 
-            #include "UnityCG.cginc"
+            Blend SrcAlpha OneMinusSrcAlpha
+            Cull Off
+            ZWrite Off
 
-            struct appdata
+            HLSLPROGRAM
+            #pragma vertex Vert
+            #pragma fragment Frag
+
+            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
+            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DeclareOpaqueTexture.hlsl"
+
+            struct Attributes
             {
-                float4 vertex : POSITION;
+                float4 positionOS : POSITION;
                 float2 uv : TEXCOORD0;
             };
 
-            struct v2f
+            struct Varyings
             {
-                float2 uv : TEXCOORD0;
-                float4 vertex : SV_POSITION;
+                float4 positionHCS : SV_POSITION;
+                float4 screenPos : TEXCOORD0;
+                float2 uv : TEXCOORD1;
             };
 
-            v2f vert (appdata v)
+            TEXTURE2D(_MainTex);
+            SAMPLER(sampler_MainTex);
+
+            CBUFFER_START(UnityPerMaterial)
+                float4 _MainTex_ST;
+                half4 _Color;
+                float _BlurSize;
+            CBUFFER_END
+
+            Varyings Vert(Attributes input)
             {
-                v2f o;
-                o.vertex = UnityObjectToClipPos(v.vertex);
-                o.uv = v.uv;
-                return o;
+                Varyings output;
+                VertexPositionInputs positionInputs = GetVertexPositionInputs(input.positionOS.xyz);
+                output.positionHCS = positionInputs.positionCS;
+                output.screenPos = ComputeScreenPos(positionInputs.positionCS);
+                output.uv = TRANSFORM_TEX(input.uv, _MainTex);
+                return output;
             }
 
-            sampler2D _MainTex;
-
-            fixed4 frag (v2f i) : SV_Target
+            half3 SampleBlurredScene(float2 screenUV, float2 blurOffset)
             {
-                fixed4 col = tex2D(_MainTex, i.uv);
-                // just invert the colors
-                col.rgb = 1 - col.rgb;
-                return col;
+                half3 color = SampleSceneColor(screenUV) * 0.22702703;
+                color += SampleSceneColor(screenUV + float2( blurOffset.x, 0.0)) * 0.19459459;
+                color += SampleSceneColor(screenUV + float2(-blurOffset.x, 0.0)) * 0.19459459;
+                color += SampleSceneColor(screenUV + float2(0.0,  blurOffset.y)) * 0.19459459;
+                color += SampleSceneColor(screenUV + float2(0.0, -blurOffset.y)) * 0.19459459;
+                color += SampleSceneColor(screenUV + float2( blurOffset.x,  blurOffset.y)) * 0.06081081;
+                color += SampleSceneColor(screenUV + float2(-blurOffset.x,  blurOffset.y)) * 0.06081081;
+                color += SampleSceneColor(screenUV + float2( blurOffset.x, -blurOffset.y)) * 0.06081081;
+                color += SampleSceneColor(screenUV + float2(-blurOffset.x, -blurOffset.y)) * 0.06081081;
+                return color;
             }
-            ENDCG
+
+            half4 Frag(Varyings input) : SV_Target
+            {
+                float2 screenUV = input.screenPos.xy / input.screenPos.w;
+                float2 blurOffset = (_BlurSize / _ScreenParams.xy);
+
+                half4 mask = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, input.uv);
+                half maskAlpha = mask.a * _Color.a;
+                half3 blurredScene = SampleBlurredScene(screenUV, blurOffset) * _Color.rgb;
+
+                return half4(blurredScene, maskAlpha);
+            }
+            ENDHLSL
         }
     }
 }
