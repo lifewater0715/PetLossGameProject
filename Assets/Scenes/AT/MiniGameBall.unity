@@ -367,10 +367,10 @@ MonoBehaviour:
   xMaxValue: 0
   xMinValue: 0
   yMaxValue: 0
-  yMinValue: 0
+  yMinValue: -5.3
   xMaxEnabled: 0
   xMinEnabled: 0
-  yMaxEnabled: 1
+  yMaxEnabled: 0
   yMinEnabled: 1
 --- !u!81 &385251752
 AudioListener:
@@ -761,6 +761,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1373215157
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1373215158}
+  m_Layer: 0
+  m_Name: CamThrowPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1373215158
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1373215157}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1429671724
 GameObject:
   m_ObjectHideFlags: 0
@@ -1136,7 +1167,7 @@ MonoBehaviour:
   camFollowTarget: {fileID: 385251751}
   ballThrowController: {fileID: 2109453730}
   dogObj: {fileID: 322562233}
-  markerObj: {fileID: 1429671726}
+  markerObj: {fileID: 1373215158}
   centerObj: {fileID: 1862552006}
 --- !u!4 &1835360440
 Transform:
@@ -1444,5 +1475,6 @@ SceneRoots:
   - {fileID: 2109453731}
   - {fileID: 1717135588}
   - {fileID: 1862552006}
+  - {fileID: 1373215158}
   - {fileID: 1332615949}
   - {fileID: 1726038324}
