@@ -5,6 +5,12 @@ TextureImporter:
   - first:
       213: -3624747485003159924
     second: Shampoo_Shower_3_0
+  - first:
+      213: 6010693573223128121
+    second: Shampoo_Shower_3_1
+  - first:
+      213: -647807872238590205
+    second: Shampoo_Shower_3_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -103,10 +109,10 @@ TextureImporter:
       name: Shampoo_Shower_3_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 512
-        height: 512
+        x: 90
+        y: 267
+        width: 78
+        height: 83
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -117,6 +123,50 @@ TextureImporter:
       bones: []
       spriteID: c8665ebfd5f42bdc0800000000000000
       internalID: -3624747485003159924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shampoo_Shower_3_1
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 230
+        width: 52
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93c10b575f54a6350800000000000000
+      internalID: 6010693573223128121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shampoo_Shower_3_2
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 48
+        width: 182
+        height: 394
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30764842c268207f0800000000000000
+      internalID: -647807872238590205
       vertices: []
       indices: 
       edges: []
@@ -136,6 +186,8 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       Shampoo_Shower_3_0: -3624747485003159924
+      Shampoo_Shower_3_1: 6010693573223128121
+      Shampoo_Shower_3_2: -647807872238590205
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

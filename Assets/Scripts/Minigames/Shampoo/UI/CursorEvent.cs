@@ -7,6 +7,7 @@ public class CursorEvent : MonoBehaviour
     [SerializeField] private float minMoveDistance = 0.15f;
 
     public event Action OnRubbed;
+    public event Action OnRubbedStop;
 
     private Camera _cam;
     private Vector2 _prevMouseWorldPos;
@@ -22,6 +23,8 @@ public class CursorEvent : MonoBehaviour
         {
             _prevMouseWorldPos = GetMouseWorldPos();
         }
+
+        if (Input.GetMouseButtonUp(0)) OnRubbedStop?.Invoke();
 
         if (!Input.GetMouseButton(0)) return;
 

@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 3f6f6130dbda55c449e01b4a8a82073b
+guid: 4f3e1fe0dfff4634da35d6e36cf49b54
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1393130573851045064
-    second: Shampoo_Dog_Shower_Progress_1_0
-  - first:
-      213: 9056292525513858610
-    second: Shampoo_Dog_Shower_Progress_1_1
+      213: 3073776265939867920
+    second: Shampoo_Dog_Begin_4_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -103,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Shampoo_Dog_Shower_Progress_1_0
+      name: Shampoo_Dog_Begin_4_0
       rect:
         serializedVersion: 2
         x: 247
@@ -118,30 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8cca02430e4655310800000000000000
-      internalID: 1393130573851045064
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Shampoo_Dog_Shower_Progress_1_1
-      rect:
-        serializedVersion: 2
-        x: 1422
-        y: 251
-        width: 11
-        height: 10
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 23e5745d11a6ead70800000000000000
-      internalID: 9056292525513858610
+      spriteID: 0195f527a3f38aa20800000000000000
+      internalID: 3073776265939867920
       vertices: []
       indices: 
       edges: []
@@ -160,8 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Shampoo_Dog_Shower_Progress_1_0: 1393130573851045064
-      Shampoo_Dog_Shower_Progress_1_1: 9056292525513858610
+      Shampoo_Dog_Begin_4_0: 3073776265939867920
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

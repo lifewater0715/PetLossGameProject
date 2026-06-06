@@ -3,8 +3,8 @@ guid: 3436e861e7268e041a7a4e4a3ce40472
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1653625828651045610
-    second: "\uBAA9\uC695\uC52C_\uC218\uAC74_ui\uBC30\uCE58\uC6A9_0"
+      213: -5947478951568466521
+    second: TowelUI_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "\uBAA9\uC695\uC52C_\uC218\uAC74_ui\uBC30\uCE58\uC6A9_0"
+      name: TowelUI_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 512
-        height: 512
+        x: 73
+        y: 90
+        width: 341
+        height: 355
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 61de7d3f1142d09e0800000000000000
-      internalID: -1653625828651045610
+      spriteID: 7ad16a6976f467da0800000000000000
+      internalID: -5947478951568466521
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      "\uBAA9\uC695\uC52C_\uC218\uAC74_ui\uBC30\uCE58\uC6A9_0": -1653625828651045610
+      TowelUI_0: -5947478951568466521
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

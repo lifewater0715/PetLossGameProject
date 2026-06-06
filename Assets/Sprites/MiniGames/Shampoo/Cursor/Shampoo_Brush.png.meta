@@ -5,6 +5,9 @@ TextureImporter:
   - first:
       213: 6917672797473038088
     second: Shampoo_Brush_0
+  - first:
+      213: 5782148981756873498
+    second: Shampoo_Brush_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -103,10 +106,10 @@ TextureImporter:
       name: Shampoo_Brush_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 512
-        height: 512
+        x: 102
+        y: 100
+        width: 300
+        height: 280
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -117,6 +120,28 @@ TextureImporter:
       bones: []
       spriteID: 80f53c502c2800060800000000000000
       internalID: 6917672797473038088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shampoo_Brush_1
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 83
+        width: 32
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1b41002dd15e3050800000000000000
+      internalID: 5782148981756873498
       vertices: []
       indices: 
       edges: []
@@ -136,6 +161,7 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       Shampoo_Brush_0: 6917672797473038088
+      Shampoo_Brush_1: 5782148981756873498
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

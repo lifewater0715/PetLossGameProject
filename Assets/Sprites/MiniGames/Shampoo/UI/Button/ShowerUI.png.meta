@@ -3,8 +3,8 @@ guid: 0bf1c85899e295e4fa4a285a45447dad
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8656361448150872285
-    second: "\uBAA9\uC695\uC52C_\uC0E4\uC6CC\uAE30_ui\uBC30\uCE58\uC6A9_0"
+      213: 9180919245716880400
+    second: ShowerUI_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "\uBAA9\uC695\uC52C_\uC0E4\uC6CC\uAE30_ui\uBC30\uCE58\uC6A9_0"
+      name: ShowerUI_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 32fc493502d6ed780800000000000000
-      internalID: -8656361448150872285
+      spriteID: 01c7080596d296f70800000000000000
+      internalID: 9180919245716880400
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      "\uBAA9\uC695\uC52C_\uC0E4\uC6CC\uAE30_ui\uBC30\uCE58\uC6A9_0": -8656361448150872285
+      ShowerUI_0: 9180919245716880400
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

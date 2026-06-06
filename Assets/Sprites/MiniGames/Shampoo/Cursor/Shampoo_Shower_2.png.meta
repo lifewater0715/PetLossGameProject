@@ -5,6 +5,15 @@ TextureImporter:
   - first:
       213: -1735323612835475968
     second: Shampoo_Shower_2_0
+  - first:
+      213: 3827874930814251766
+    second: Shampoo_Shower_2_1
+  - first:
+      213: -9068038376855489924
+    second: Shampoo_Shower_2_2
+  - first:
+      213: -6580184954251908424
+    second: Shampoo_Shower_2_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -103,10 +112,10 @@ TextureImporter:
       name: Shampoo_Shower_2_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 512
-        height: 512
+        x: 105
+        y: 345
+        width: 66
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -117,6 +126,72 @@ TextureImporter:
       bones: []
       spriteID: 00e08964e54eae7e0800000000000000
       internalID: -1735323612835475968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shampoo_Shower_2_1
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 48
+        width: 182
+        height: 394
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f27ec7f7f75f1530800000000000000
+      internalID: 3827874930814251766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shampoo_Shower_2_2
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 299
+        width: 65
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c723be9042bd72280800000000000000
+      internalID: -9068038376855489924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shampoo_Shower_2_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 244
+        width: 51
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8bae17db5ac7ea4a0800000000000000
+      internalID: -6580184954251908424
       vertices: []
       indices: 
       edges: []
@@ -136,6 +211,9 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       Shampoo_Shower_2_0: -1735323612835475968
+      Shampoo_Shower_2_1: 3827874930814251766
+      Shampoo_Shower_2_2: -9068038376855489924
+      Shampoo_Shower_2_3: -6580184954251908424
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
