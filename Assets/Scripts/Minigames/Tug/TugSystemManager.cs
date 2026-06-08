@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class TugSystemManager : MonoBehaviour
@@ -7,11 +8,26 @@ public class TugSystemManager : MonoBehaviour
     [SerializeField] private float maxGauge = 60f;
     [SerializeField] private float scoreIncreaseSpeed = 10f;
     [SerializeField] private float clearScore = 100f;
+    [SerializeField] private CutSceneManager cutSceneManager;
+
+    private bool gameStart = false;
+    public bool GameStart => gameStart;
 
     private float score;
     private bool isCleared;
 
     [SerializeField] private string nextSceneName = "PlayerRoom";
+
+    private void Start()
+    {
+        StartCoroutine(CGameStart());
+    }
+
+    private IEnumerator CGameStart()
+    {
+        yield return new WaitForSeconds(1f);
+        gameStart = true;
+    }
 
     private void Update()
     {
@@ -28,8 +44,15 @@ public class TugSystemManager : MonoBehaviour
         if (score >= clearScore)
         {
             isCleared = true;
+            gameStart = false;
             Debug.Log("-------------------Tug minigame clear-------------------");
-            SceneLoadManager.Instance.LoadScene(nextSceneName);
+            StartCoroutine(ShowCutScene());
         }
+    }
+
+    private IEnumerator ShowCutScene()
+    {
+        yield return StartCoroutine(cutSceneManager.StartCutScene());
+        SceneLoadManager.Instance.LoadScene(nextSceneName);
     }
 }

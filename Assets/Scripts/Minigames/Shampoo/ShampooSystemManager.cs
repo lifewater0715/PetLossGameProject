@@ -14,6 +14,7 @@ public class ShampooSystemManager : MonoBehaviour
     [SerializeField] private float chargeTowelSpeed = 100f;
 
     [SerializeField] private string nextSceneName = "PlayerRoom";
+    [SerializeField] private CutSceneManager cutSceneManager;
 
     private CursorType _cursorType = CursorType.None;
     private bool _wipingAnim = false;
@@ -152,12 +153,12 @@ public class ShampooSystemManager : MonoBehaviour
         _charged = 0f;
         _turn++;
         Debug.Log("타월 이벤트 완료!");
-        StartCoroutine(CNextMoveScene());
+        StartCoroutine(ShowCutScene());
     }
 
-    private IEnumerator CNextMoveScene()
+    private IEnumerator ShowCutScene()
     {
-        yield return new WaitForSeconds(1f);
+        yield return StartCoroutine(cutSceneManager.StartCutScene());
         SceneLoadManager.Instance.LoadScene(nextSceneName);
     }
 }

@@ -4,6 +4,7 @@ public class TugGaugeController : MonoBehaviour
 {
     [SerializeField] private float dogPower = 6f;
     [SerializeField] private float chargeSpeed = 4f;
+    [SerializeField] private TugSystemManager tugSystemManager;
 
     private float _gauge = 50f;
     private bool _dogPull = true;
@@ -15,6 +16,8 @@ public class TugGaugeController : MonoBehaviour
 
     private void Update()
     {
+        if (!tugSystemManager.GameStart) return;
+
         OnDogPull();
     }
 
