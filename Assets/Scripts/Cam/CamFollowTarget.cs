@@ -22,6 +22,13 @@ public class CamFollowTarget : MonoBehaviour
     [SerializeField] private bool yMinEnabled = false;
 
     private Vector3 _velocity = Vector3.zero;
+    private Camera _cam;
+    private Coroutine _sizeCoroutine;
+
+    private void Awake()
+    {
+        _cam = GetComponent<Camera>();
+    }
 
     private void LateUpdate() 
     {
@@ -33,20 +40,36 @@ public class CamFollowTarget : MonoBehaviour
         if (target == null) return;
 
         Vector3 targetPos = target.position;
+        float cameraHalfHeight = 0f;
+        float cameraHalfWidth = 0f;
+
+        if (_cam != null && _cam.orthographic)
+        {
+            cameraHalfHeight = _cam.orthographicSize;
+            cameraHalfWidth = cameraHalfHeight * _cam.aspect;
+        }
 
         if (yMinEnabled && yMaxEnabled)
-            targetPos.y = Mathf.Clamp(target.position.y, yMinValue, yMaxValue);
+        {
+            float minY = yMinValue + cameraHalfHeight;
+            float maxY = yMaxValue - cameraHalfHeight;
+            targetPos.y = minY <= maxY ? Mathf.Clamp(target.position.y, minY, maxY) : (yMinValue + yMaxValue) * 0.5f;
+        }
         else if (yMinEnabled)
-            targetPos.y = Mathf.Clamp(target.position.y, yMinValue, target.position.y);
+            targetPos.y = Mathf.Clamp(target.position.y, yMinValue + cameraHalfHeight, target.position.y);
         else if (yMaxEnabled)
-            targetPos.y = Mathf.Clamp(target.position.y, target.position.y, yMaxValue);
+            targetPos.y = Mathf.Clamp(target.position.y, target.position.y, yMaxValue - cameraHalfHeight);
 
         if (xMinEnabled && xMaxEnabled)
-            targetPos.x= Mathf.Clamp(target.position.x, xMinValue, xMaxValue);
+        {
+            float minX = xMinValue + cameraHalfWidth;
+            float maxX = xMaxValue - cameraHalfWidth;
+            targetPos.x = minX <= maxX ? Mathf.Clamp(target.position.x, minX, maxX) : (xMinValue + xMaxValue) * 0.5f;
+        }
         else if (xMinEnabled)
-            targetPos.x = Mathf.Clamp(target.position.x, xMinValue, target.position.x);
+            targetPos.x = Mathf.Clamp(target.position.x, xMinValue + cameraHalfWidth, target.position.x);
         else if (xMaxEnabled)
-            targetPos.x = Mathf.Clamp(target.position.x, target.position.x, xMaxValue);
+            targetPos.x = Mathf.Clamp(target.position.x, target.position.x, xMaxValue - cameraHalfWidth);
 
         targetPos.z = transform.position.z;
 
@@ -81,5 +104,46 @@ public class CamFollowTarget : MonoBehaviour
             yield return new WaitForSeconds(smoothTimeDelay);
             SetCamSmoothTime(smoothTime);
         }
+    }
+
+    public void OnCamSmoothSize(float targetSize)
+    {
+        if (_sizeCoroutine != null)
+            StopCoroutine(_sizeCoroutine);
+
+        _sizeCoroutine = StartCoroutine(COnCamSmoothSize(targetSize));
+    }
+
+    private IEnumerator COnCamSmoothSize(float targetSize)
+    {
+        float smoothTimeDelay = 0.05f;
+        float currentSize = _cam.orthographicSize;
+
+        if (currentSize < targetSize)
+        {
+            while (currentSize <= targetSize)
+            {
+                currentSize += smoothTimeDelay;
+                yield return new WaitForSeconds(0.02f);
+                _cam.orthographicSize = currentSize;
+            }
+        }
+        else if (currentSize > targetSize)
+        {
+            while (currentSize >= targetSize)
+            {
+                currentSize -= smoothTimeDelay;
+                yield return new WaitForSeconds(0.02f);
+                _cam.orthographicSize = currentSize;
+            }
+        }
+        else
+        {
+            _sizeCoroutine = null;
+            yield break;
+        }
+
+        _cam.orthographicSize = targetSize;
+        _sizeCoroutine = null;
     }
 }

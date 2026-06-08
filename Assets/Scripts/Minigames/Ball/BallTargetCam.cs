@@ -44,11 +44,13 @@ public class BallTargetCam : MonoBehaviour
     {
         camFollowTarget.SetCamSmoothTime(0.2f);
         camFollowTarget.SetCamTarget(dogObj);
+        camFollowTarget.OnCamSmoothSize(5f);
     }
 
     private void OnMarkingTarget()
     {
-        camFollowTarget.OnCamSmoothTarget(markerObj, 0.2f);
+        camFollowTarget.OnCamSmoothTarget(centerObj, 0.2f);
+        camFollowTarget.OnCamSmoothSize(7f);
     }
 
     public void OnCenterTarget()

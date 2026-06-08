@@ -13,7 +13,7 @@ public class ShampooEvent : MonoBehaviour, IPropsEvent
     private IEnumerator CEventStart()
     {
         Debug.Log("샴푸 상호작용");
-        //SceneLoadManager.Instance.LoadScene(loadSceneName);
+        SceneLoadManager.Instance.LoadScene(loadSceneName);
         yield return null;
     }
 }

@@ -1,0 +1,377 @@
+fileFormatVersion: 2
+guid: b2e8b528be79dbb48b7580ea9ce89212
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6375445029920016458
+    second: Shampoo_Bubble_2_0
+  - first:
+      213: 6999960890469019961
+    second: Shampoo_Bubble_2_1
+  - first:
+      213: 5226579898776583525
+    second: Shampoo_Bubble_2_2
+  - first:
+      213: -5416876408393435671
+    second: Shampoo_Bubble_2_3
+  - first:
+      213: 4927957284492431641
+    second: Shampoo_Bubble_2_4
+  - first:
+      213: 8203706905836034178
+    second: Shampoo_Bubble_2_5
+  - first:
+      213: 631066355678113348
+    second: Shampoo_Bubble_2_6
+  - first:
+      213: -428816273394476140
+    second: Shampoo_Bubble_2_7
+  - first:
+      213: 7167481578282400280
+    second: Shampoo_Bubble_2_8
+  - first:
+      213: 3706516384422101595
+    second: Shampoo_Bubble_2_9
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 250
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Shampoo_Bubble_2_0
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 1140
+        width: 399
+        height: 304
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a488965e9712a7850800000000000000
+      internalID: 6375445029920016458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shampoo_Bubble_2_1
+      rect:
+        serializedVersion: 2
+        x: 819
+        y: 1050
+        width: 220
+        height: 319
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 931780ea75bd42160800000000000000
+      internalID: 6999960890469019961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shampoo_Bubble_2_2
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 321
+        width: 413
+        height: 795
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56d76c0f9ba888840800000000000000
+      internalID: 5226579898776583525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shampoo_Bubble_2_3
+      rect:
+        serializedVersion: 2
+        x: 1301
+        y: 1026
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e5f38d3b9363d4b0800000000000000
+      internalID: -5416876408393435671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shampoo_Bubble_2_4
+      rect:
+        serializedVersion: 2
+        x: 707
+        y: 675
+        width: 421
+        height: 337
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91158727a0f936440800000000000000
+      internalID: 4927957284492431641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shampoo_Bubble_2_5
+      rect:
+        serializedVersion: 2
+        x: 729
+        y: 298
+        width: 723
+        height: 613
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28896cb37fb69d170800000000000000
+      internalID: 8203706905836034178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shampoo_Bubble_2_6
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 259
+        width: 289
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44ee4e7c18ff1c800800000000000000
+      internalID: 631066355678113348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shampoo_Bubble_2_7
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 439
+        width: 161
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49b5a6e0fd98c0af0800000000000000
+      internalID: -428816273394476140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shampoo_Bubble_2_8
+      rect:
+        serializedVersion: 2
+        x: 1437
+        y: 403
+        width: 52
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81abdaf3582087360800000000000000
+      internalID: 7167481578282400280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shampoo_Bubble_2_9
+      rect:
+        serializedVersion: 2
+        x: 969
+        y: 156
+        width: 384
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5205af7301307330800000000000000
+      internalID: 3706516384422101595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Shampoo_Bubble_2_0: 6375445029920016458
+      Shampoo_Bubble_2_1: 6999960890469019961
+      Shampoo_Bubble_2_2: 5226579898776583525
+      Shampoo_Bubble_2_3: -5416876408393435671
+      Shampoo_Bubble_2_4: 4927957284492431641
+      Shampoo_Bubble_2_5: 8203706905836034178
+      Shampoo_Bubble_2_6: 631066355678113348
+      Shampoo_Bubble_2_7: -428816273394476140
+      Shampoo_Bubble_2_8: 7167481578282400280
+      Shampoo_Bubble_2_9: 3706516384422101595
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
