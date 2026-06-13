@@ -61,7 +61,7 @@ public class FadeManager : MonoBehaviour
         while (alpha > endAlpha)
         {
             alpha -= 0.01f;
-            yield return new WaitForSeconds(0.01f);
+            yield return new WaitForSecondsRealtime(0.01f);
             fadeScreen.color = new Color(0f, 0f, 0f, alpha);
         }
         fadeScreen.gameObject.SetActive(false);
@@ -77,7 +77,7 @@ public class FadeManager : MonoBehaviour
         while (alpha < endAlpha)
         {
             alpha += 0.01f;
-            yield return new WaitForSeconds(0.01f);
+            yield return new WaitForSecondsRealtime(0.01f);
             fadeScreen.color = new Color(0f, 0f, 0f, alpha);
         }
     }

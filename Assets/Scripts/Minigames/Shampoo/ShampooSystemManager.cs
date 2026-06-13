@@ -15,6 +15,7 @@ public class ShampooSystemManager : MonoBehaviour
 
     [SerializeField] private string nextSceneName = "PlayerRoom";
     [SerializeField] private CutSceneManager cutSceneManager;
+    [SerializeField] private ShampooUIGuideText shampooUIGuideText;
 
     private CursorType _cursorType = CursorType.None;
     private bool _wipingAnim = false;
@@ -53,10 +54,12 @@ public class ShampooSystemManager : MonoBehaviour
         switch (_cursorType)
         {
             case CursorType.Shampoo:
+                shampooUIGuideText.StopGuide();
                 ShampooInteract();
                 UIGlow.SetShampooUIHighlight(false);
                 break;
             case CursorType.Shower:
+                shampooUIGuideText.StopGuide();
                 ShowerInteract();
                 UIGlow.SetShowerUIHighlight(false);
                 break;
@@ -106,6 +109,7 @@ public class ShampooSystemManager : MonoBehaviour
         _charged = 0f;
         _turn++;
         Debug.Log("샴푸 이벤트 완료!");
+        shampooUIGuideText.EndToolShampoo();
         UIGlow.SetShowerUIHighlight(true);
     }
 
@@ -127,6 +131,7 @@ public class ShampooSystemManager : MonoBehaviour
         _charged = 0f;
         _turn++;
         Debug.Log("샤워기 이벤트 완료!");
+        shampooUIGuideText.EndToolShower();
         UIGlow.SetTowelUIHighlight(true);
     }
     

@@ -16,10 +16,10 @@ public class CutSceneManager : MonoBehaviour
         FadeManager.Instance.HalfFadeOut();
         cutSceneFade.FadeIn();
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSecondsRealtime(5f);
         FadeManager.Instance.HalfFadeIn();
         cutSceneFade.FadeOut();
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSecondsRealtime(2f);
     }
 }

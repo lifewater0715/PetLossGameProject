@@ -29,7 +29,7 @@ public class CutSceneFade : MonoBehaviour
         while (alpha < endAlpha)
         {
             alpha += 0.01f;
-            yield return new WaitForSeconds(0.01f);
+            yield return new WaitForSecondsRealtime(0.01f);
             cutScene.color = new Color(1f, 1f, 1f, alpha);
         }
     }
@@ -42,7 +42,7 @@ public class CutSceneFade : MonoBehaviour
         while (alpha > endAlpha)
         {
             alpha -= 0.01f;
-            yield return new WaitForSeconds(0.01f);
+            yield return new WaitForSecondsRealtime(0.01f);
             cutScene.color = new Color(1f, 1f, 1f, alpha);
         }
         cutScene.gameObject.SetActive(false);
