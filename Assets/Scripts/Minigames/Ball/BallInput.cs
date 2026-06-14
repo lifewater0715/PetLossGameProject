@@ -5,6 +5,7 @@ public class BallInput : MonoBehaviour
     [SerializeField] private BallThrowController ballThrowController;
 
     private bool throwingReady = false;
+    private bool canThrowing = true;
 
 #if UNITY_EDITOR
     [ContextMenu("Auto Assign")]
@@ -17,6 +18,8 @@ public class BallInput : MonoBehaviour
     private void Update()
     {
         if (FadeManager.Instance != null && FadeManager.Instance.IsFading) return;
+
+        if (!canThrowing) return;
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -38,5 +41,10 @@ public class BallInput : MonoBehaviour
     public void ReadyToThrowing()
     {
         throwingReady = false;
+    }
+
+    public void SetCanThrowing(bool value)
+    {
+        canThrowing = value;
     }
 }

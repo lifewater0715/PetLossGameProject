@@ -4,7 +4,10 @@ public class TugGaugeController : MonoBehaviour
 {
     [SerializeField] private float dogPower = 6f;
     [SerializeField] private float chargeSpeed = 4f;
+    [SerializeField] private TugSystemManager tugSystemManager;
+    [SerializeField] private TugUIGuideText tugUIGuideText;
 
+    private bool _firstPlayerPull = false;
     private float _gauge = 50f;
     private bool _dogPull = true;
 
@@ -12,9 +15,14 @@ public class TugGaugeController : MonoBehaviour
     public float NormalizedGauge => _gauge / 100f;
     public bool IsDogPulling => _dogPull;
     public bool IsPlayerPulling => !_dogPull;
+    public bool FirstPlayerPull => _firstPlayerPull;
 
     private void Update()
     {
+        if (!tugSystemManager.GameStart) return;
+
+        if (!_firstPlayerPull) return;
+
         OnDogPull();
     }
 
@@ -31,6 +39,12 @@ public class TugGaugeController : MonoBehaviour
 
     public void OnChargedGauge()
     {
+        if (!_firstPlayerPull) 
+        {
+            _firstPlayerPull = true;
+            tugUIGuideText.StopGuide();
+        }
+
         if (_gauge == 100f) return;
 
         _gauge -= Time.deltaTime * chargeSpeed;

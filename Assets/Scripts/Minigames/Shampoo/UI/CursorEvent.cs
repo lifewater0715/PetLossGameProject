@@ -8,9 +8,12 @@ public class CursorEvent : MonoBehaviour
 
     public event Action OnRubbed;
     public event Action OnRubbedStop;
+    public event Action OnHeldOnDog;
+    public event Action OnHeldOnDogStop;
 
     private Camera _cam;
     private Vector2 _prevMouseWorldPos;
+    private bool _wasHeldOnDog;
 
     private void Awake()
     {
@@ -24,13 +27,34 @@ public class CursorEvent : MonoBehaviour
             _prevMouseWorldPos = GetMouseWorldPos();
         }
 
-        if (Input.GetMouseButtonUp(0)) OnRubbedStop?.Invoke();
+        if (Input.GetMouseButtonUp(0))
+        {
+            OnRubbedStop?.Invoke();
+
+            if (_wasHeldOnDog)
+            {
+                OnHeldOnDogStop?.Invoke();
+                _wasHeldOnDog = false;
+            }
+        }
 
         if (!Input.GetMouseButton(0)) return;
 
         Vector2 currentMouseWorldPos = GetMouseWorldPos();
+        bool isMouseOnDog = IsMouseOnDog(currentMouseWorldPos);
 
-        if (!IsMouseOnDog(currentMouseWorldPos))
+        if (isMouseOnDog)
+        {
+            OnHeldOnDog?.Invoke();
+            _wasHeldOnDog = true;
+        }
+        else if (_wasHeldOnDog)
+        {
+            OnHeldOnDogStop?.Invoke();
+            _wasHeldOnDog = false;
+        }
+
+        if (!isMouseOnDog)
         {
             _prevMouseWorldPos = currentMouseWorldPos;
             return;

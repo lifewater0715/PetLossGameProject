@@ -47,7 +47,7 @@ public class ShampooEffect : MonoBehaviour
 
         if (_floorWaterIndex < floorWaterSprite.Count - 1) _floorWaterIndex++;
 
-        if (_floorWaterIndex < 3) 
+        if (_floorWaterIndex < 4) 
         {
             floorWaterEffect.sprite = floorWaterSprite[_floorWaterIndex];
             return;

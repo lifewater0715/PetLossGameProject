@@ -41,5 +41,14 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: ImgCutter
+    uniqueID: 1243010173
+    locked: 0
+  - name: Puzzle_1
+    uniqueID: 2926037899
+    locked: 0
+  - name: PuzzleMask
+    uniqueID: 3942071333
+    locked: 0
   m_RenderingLayers:
   - Default
