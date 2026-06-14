@@ -9,6 +9,7 @@ public class AutoFlip : MonoBehaviour {
     public bool AutoStartFlip=true;
     public Book ControledBook;
     public int AnimationFramesCount = 40;
+    public bool IsFlipping => isFlipping;
     bool isFlipping = false;
     // Use this for initialization
     void Start () {
@@ -29,7 +30,9 @@ public class AutoFlip : MonoBehaviour {
     public void FlipRightPage()
     {
         if (isFlipping) return;
+        if (!ControledBook.interactable) return;
         if (ControledBook.currentPage >= ControledBook.TotalPageCount) return;
+
         isFlipping = true;
         float frameTime = PageFlipTime / AnimationFramesCount;
         float xc = (ControledBook.EndBottomRight.x + ControledBook.EndBottomLeft.x) / 2;
@@ -41,9 +44,11 @@ public class AutoFlip : MonoBehaviour {
     }
     public void FlipLeftPage()
     {
-        if (isFlipping) return;
-        if (ControledBook.currentPage <= 0) return;
-        isFlipping = true;
+    if (isFlipping) return;
+    if (!ControledBook.interactable) return;
+    if (ControledBook.currentPage <= 0) return;
+
+    isFlipping = true;
         float frameTime = PageFlipTime / AnimationFramesCount;
         float xc = (ControledBook.EndBottomRight.x + ControledBook.EndBottomLeft.x) / 2;
         float xl = ((ControledBook.EndBottomRight.x - ControledBook.EndBottomLeft.x) / 2) * 0.9f;

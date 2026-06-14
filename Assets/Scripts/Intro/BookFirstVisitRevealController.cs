@@ -24,6 +24,8 @@ public class BookFirstVisitRevealController : MonoBehaviour
     [SerializeField] private bool revealLeftPageFirst = true;
     [SerializeField] private bool blockBookInputDuringReveal = true;
 
+    public bool IsRevealing { get; private set; }
+
     private readonly Dictionary<BookPageSlot, CenterHoleFadeUI> _covers = new Dictionary<BookPageSlot, CenterHoleFadeUI>();
     private readonly HashSet<int> _revealedPages = new HashSet<int>();
     private readonly HashSet<int> _revealingPages = new HashSet<int>();
@@ -110,50 +112,51 @@ public class BookFirstVisitRevealController : MonoBehaviour
     {
         if (book == null)
             yield break;
-
+    
+        IsRevealing = true;
+    
         bool previousInteractable = book.interactable;
-
+    
         if (blockBookInputDuringReveal)
             book.interactable = false;
-
+    
         yield return new WaitForSeconds(revealDelayAfterFlip);
-
+    
         List<BookPageSlot> visibleSlots = GetVisibleSlotsInRevealOrder();
-
+    
         for (int i = 0; i < visibleSlots.Count; i++)
         {
             BookPageSlot slot = visibleSlots[i];
             int pageIndex = book.GetPageIndex(slot);
-
+    
             if (!IsValidPageIndex(pageIndex)) continue;
             if (_revealedPages.Contains(pageIndex)) continue;
             if (_revealingPages.Contains(pageIndex)) continue;
-
+    
             CenterHoleFadeUI cover = GetCover(slot);
             if (cover == null) continue;
-
+    
             _revealingPages.Add(pageIndex);
-
+    
             cover.SetDuration(revealDuration);
             cover.SetEndRadius(revealEndRadius);
             cover.ResetToClosed(true);
-
-            cover.ResetToClosed(true);
-
+    
             yield return cover.PlayAndWait();
-
+    
             _revealingPages.Remove(pageIndex);
             _revealedPages.Add(pageIndex);
-
+    
             if (revealDelayBetweenPages > 0f)
                 yield return new WaitForSeconds(revealDelayBetweenPages);
         }
-
+    
         RefreshAllCovers();
-
+    
         if (blockBookInputDuringReveal)
             book.interactable = previousInteractable;
-
+    
+        IsRevealing = false;
         _revealCoroutine = null;
     }
 

@@ -651,7 +651,7 @@ GameObject:
   - component: {fileID: 488115039}
   - component: {fileID: 488115038}
   m_Layer: 5
-  m_Name: GuidText
+  m_Name: GuideText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

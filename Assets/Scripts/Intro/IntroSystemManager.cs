@@ -9,9 +9,13 @@ public class IntroSystemManager : MonoBehaviour
     [SerializeField] private int lastPage = 7;
     [SerializeField] private Image nextSceneBtn;
     [SerializeField] private GameObject rightHotSpot;
+    [SerializeField] private IntroUIGuideText introUIGuideText;
     [SerializeField] private float showBtnDelay = 5f;
 
     private bool _lastPageVisit = false;
+    private float _guideTimer;
+    private bool _guideAlertNow = false;
+    private float _guideTimerMax = 5f;
 
     private void Awake()
     {
@@ -20,6 +24,15 @@ public class IntroSystemManager : MonoBehaviour
 
     private void Update()
     {
+        if (_guideTimer <= _guideTimerMax && !_guideAlertNow)
+            _guideTimer += Time.deltaTime;
+            
+        if (_guideTimer > _guideTimerMax && !_guideAlertNow)
+        {
+            _guideAlertNow = true;
+            introUIGuideText.StartGuide();
+        }
+
         if (book.currentPage == lastPage && !_lastPageVisit)
             MoveNextSceneReady();
 
@@ -27,6 +40,24 @@ public class IntroSystemManager : MonoBehaviour
             rightHotSpot.SetActive(false);
         else if (book.currentPage != lastPage && !rightHotSpot.activeSelf) 
             rightHotSpot.SetActive(true);
+    }
+
+    private void OnEnable()
+    {
+        book.OnFlip.AddListener(OnPageFlipped);
+    }
+
+    private void OnDisable()
+    {
+        book.OnFlip.RemoveListener(OnPageFlipped);
+    }
+
+    private void OnPageFlipped()
+    {
+        _guideTimer = 0f;
+        _guideTimerMax = 10f;
+        _guideAlertNow = false;
+        introUIGuideText.StopGuide();
     }
 
     private void MoveNextSceneReady()
