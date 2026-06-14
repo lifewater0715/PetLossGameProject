@@ -24,7 +24,7 @@ public class IntroSystemManager : MonoBehaviour
 
     private void Update()
     {
-        if (_guideTimer <= _guideTimerMax && !_guideAlertNow)
+        if (_guideTimer <= _guideTimerMax && !_guideAlertNow && book.currentPage != book.TotalPageCount - 1)
             _guideTimer += Time.deltaTime;
             
         if (_guideTimer > _guideTimerMax && !_guideAlertNow)
