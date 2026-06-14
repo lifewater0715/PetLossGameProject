@@ -13,6 +13,14 @@ public enum FlipMode
     LeftToRight
 }
 
+public enum BookPageSlot
+{
+    Left,
+    Right,
+    LeftNext,
+    RightNext
+}
+
 [System.Serializable]
 public class AnimatedBookPage
 {
@@ -69,6 +77,8 @@ public class Book : MonoBehaviour
 
     public UnityEvent OnFlip;
 
+    public event System.Action OnPageSlotsUpdated;
+
     private float radius1, radius2;
 
     // Spine Bottom
@@ -105,6 +115,48 @@ public class Book : MonoBehaviour
     private int rightPageIndex = -999;
     private int leftNextPageIndex = -999;
     private int rightNextPageIndex = -999;
+
+    public int GetPageIndex(BookPageSlot slot)
+    {
+        switch (slot)
+        {
+            case BookPageSlot.Left:
+                return leftPageIndex;
+            case BookPageSlot.Right:
+                return rightPageIndex;
+            case BookPageSlot.LeftNext:
+                return leftNextPageIndex;
+            case BookPageSlot.RightNext:
+                return rightNextPageIndex;
+            default:
+                return -1;
+        }
+    }
+
+    public Image GetPageImage(BookPageSlot slot)
+    {
+        switch (slot)
+        {
+            case BookPageSlot.Left:
+                return Left;
+            case BookPageSlot.Right:
+                return Right;
+            case BookPageSlot.LeftNext:
+                return LeftNext;
+            case BookPageSlot.RightNext:
+                return RightNext;
+            default:
+                return null;
+        }
+    }
+
+    private void NotifyPageSlotsUpdated()
+    {
+        if (!Application.isPlaying) return;
+
+        if (OnPageSlotsUpdated != null)
+            OnPageSlotsUpdated.Invoke();
+    }
 
     private void Start()
     {
@@ -395,6 +447,7 @@ public class Book : MonoBehaviour
             Shadow.gameObject.SetActive(true);
 
         UpdateBookRTLToPoint(f);
+        NotifyPageSlotsUpdated();
     }
 
     public void OnMouseDragRightPage()
@@ -435,6 +488,7 @@ public class Book : MonoBehaviour
             ShadowLTR.gameObject.SetActive(true);
 
         UpdateBookLTRToPoint(f);
+        NotifyPageSlotsUpdated();
     }
 
     public void OnMouseDragLeftPage()
@@ -470,6 +524,7 @@ public class Book : MonoBehaviour
     {
         SetAnimatedPage(LeftNext, currentPage - 1, ref leftNextAnimationCoroutine, ref leftNextPageIndex);
         SetAnimatedPage(RightNext, currentPage, ref rightNextAnimationCoroutine, ref rightNextPageIndex);
+        NotifyPageSlotsUpdated();
     }
 
     public void TweenForward()

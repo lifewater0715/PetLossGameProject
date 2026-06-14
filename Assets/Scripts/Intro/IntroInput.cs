@@ -9,9 +9,9 @@ public class IntroInput : MonoBehaviour
     {
         if (FadeManager.Instance != null && FadeManager.Instance.IsFading) return;
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        /*if (Input.GetKeyDown(KeyCode.Space))
         {
             autoFlip.FlipRightPage();
-        }
+        }*/
     }
 }
