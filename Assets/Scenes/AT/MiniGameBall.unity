@@ -178,6 +178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 181b5a0170eebed4bbc22b98b0cb18d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TextFade
+  _isTextShow: 0
 --- !u!1 &125228771
 GameObject:
   m_ObjectHideFlags: 0
@@ -695,8 +696,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Space \uD0A4\uB97C  \uAE38\uAC8C \uB20C\uB800\uB2E4 \uB54C\uC11C \uACF5\uC744
-    \uB358\uC838\uBCF4\uC138\uC694!"
+  m_text: "Space \uD0A4\uB97C \uAE38\uAC8C \uB204\uB978 \uB4A4, \uB5BC\uC5B4\uC11C
+    \uACF5\uC744 \uB358\uC838\uBCF4\uC138\uC694!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d484a7135c405f94fbe56e7689e564a3, type: 2}
   m_sharedMaterial: {fileID: 1413368987348896433, guid: d484a7135c405f94fbe56e7689e564a3, type: 2}
