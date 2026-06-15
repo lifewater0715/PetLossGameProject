@@ -25,6 +25,7 @@ public enum BookPageSlot
 public class AnimatedBookPage
 {
     public Sprite[] frames;
+    public int loopStartFrame = 0;
 }
 
 [ExecuteInEditMode]
@@ -39,6 +40,9 @@ public class Book : MonoBehaviour
     [Header("Animated Pages")]
     public AnimatedBookPage[] bookPages;
     public float pageFrameRate = 8f;
+
+    private int[] pageFrameIndices;
+    private bool[] pageIntroFinished;
 
     public bool interactable = true;
     public bool enableShadowEffect = true;
@@ -160,6 +164,8 @@ public class Book : MonoBehaviour
 
     private void Start()
     {
+        InitializePageFrameState();
+
         if (!canvas) canvas = GetComponentInParent<Canvas>();
         if (!canvas) Debug.LogError("Book should be a child to canvas");
 
@@ -183,6 +189,17 @@ public class Book : MonoBehaviour
 
         ShadowLTR.rectTransform.sizeDelta = new Vector2(pageWidth, shadowPageHeight);
         ShadowLTR.rectTransform.pivot = new Vector2(0, (pageWidth / 2) / shadowPageHeight);
+    }
+
+    private void InitializePageFrameState()
+    {
+        int pageCount = bookPages != null ? bookPages.Length : 0;
+    
+        if (pageFrameIndices == null || pageFrameIndices.Length != pageCount)
+            pageFrameIndices = new int[pageCount];
+    
+        if (pageIntroFinished == null || pageIntroFinished.Length != pageCount)
+            pageIntroFinished = new bool[pageCount];
     }
 
     private void OnDisable()
@@ -633,6 +650,8 @@ public class Book : MonoBehaviour
     {
         if (target == null) return;
 
+        InitializePageFrameState();
+
         if (cachedPageIndex == pageIndex && animationCoroutine != null)
             return;
 
@@ -652,10 +671,11 @@ public class Book : MonoBehaviour
             return;
         }
 
-        target.sprite = frames[0];
+        int safeFrameIndex = Mathf.Clamp(pageFrameIndices[pageIndex], 0, frames.Length - 1);
+        target.sprite = frames[safeFrameIndex];
 
         if (Application.isPlaying && frames.Length > 1 && pageFrameRate > 0f)
-            animationCoroutine = StartCoroutine(PlayPageFrames(target, frames));
+            animationCoroutine = StartCoroutine(PlayPageFrames(pageIndex, target, frames));
     }
 
     private Sprite[] GetPageFrames(int pageIndex)
@@ -669,23 +689,93 @@ public class Book : MonoBehaviour
         return bookPages[pageIndex].frames;
     }
 
-    private IEnumerator PlayPageFrames(Image target, Sprite[] frames)
+    public void RestartPageAnimation(BookPageSlot slot)
     {
-        int frameIndex = 0;
-        WaitForSeconds delay = new WaitForSeconds(1f / pageFrameRate);
+        InitializePageFrameState();
 
-        while (true)
+        Image image = GetPageImage(slot);
+        int pageIndex = GetPageIndex(slot);
+
+        if (image == null) return;
+        if (pageIndex < 0 || pageIndex >= TotalPageCount) return;
+
+        pageFrameIndices[pageIndex] = 0;
+        pageIntroFinished[pageIndex] = false;
+
+        switch (slot)
         {
-            if (target != null && frames != null && frames.Length > 0)
-                target.sprite = frames[frameIndex];
+            case BookPageSlot.Left:
+                RestartAnimatedPage(image, pageIndex, ref leftAnimationCoroutine);
+                break;
 
-            frameIndex++;
+            case BookPageSlot.Right:
+                RestartAnimatedPage(image, pageIndex, ref rightAnimationCoroutine);
+                break;
 
-            if (frameIndex >= frames.Length)
-                frameIndex = 0;
+            case BookPageSlot.LeftNext:
+                RestartAnimatedPage(image, pageIndex, ref leftNextAnimationCoroutine);
+                break;
 
-            yield return delay;
+            case BookPageSlot.RightNext:
+                RestartAnimatedPage(image, pageIndex, ref rightNextAnimationCoroutine);
+                break;
         }
+    }
+
+    public void PausePageAnimationAtFirstFrame(BookPageSlot slot)
+    {
+        Image image = GetPageImage(slot);
+        int pageIndex = GetPageIndex(slot);
+
+        if (image == null) return;
+
+        switch (slot)
+        {
+            case BookPageSlot.Left:
+                StopPageAnimation(ref leftAnimationCoroutine);
+                break;
+
+            case BookPageSlot.Right:
+                StopPageAnimation(ref rightAnimationCoroutine);
+                break;
+
+            case BookPageSlot.LeftNext:
+                StopPageAnimation(ref leftNextAnimationCoroutine);
+                break;
+
+            case BookPageSlot.RightNext:
+                StopPageAnimation(ref rightNextAnimationCoroutine);
+                break;
+        }
+
+        Sprite[] frames = GetPageFrames(pageIndex);
+
+        if (frames != null && frames.Length > 0)
+            image.sprite = frames[0];
+        else
+            image.sprite = background;
+    }
+
+    private void RestartAnimatedPage(Image target, int pageIndex, ref Coroutine animationCoroutine)
+    {
+        if (animationCoroutine != null)
+        {
+            StopCoroutine(animationCoroutine);
+            animationCoroutine = null;
+        }
+    
+        Sprite[] frames = GetPageFrames(pageIndex);
+    
+        if (frames == null || frames.Length == 0)
+        {
+            target.sprite = background;
+            return;
+        }
+    
+        target.sprite = frames[0];
+    
+        if (Application.isPlaying && frames.Length > 1 && pageFrameRate > 0f)
+            animationCoroutine = StartCoroutine(PlayPageFrames(pageIndex, target, frames));
     }
 
     private void StopAllPageAnimations()
@@ -702,5 +792,36 @@ public class Book : MonoBehaviour
 
         StopCoroutine(coroutine);
         coroutine = null;
+    }
+
+    private IEnumerator PlayPageFrames(int pageIndex, Image target, Sprite[] frames)
+    {
+        if (frames == null || frames.Length == 0) yield break;
+
+        int frameIndex = pageFrameIndices[pageIndex];
+
+        int loopStartFrame = Mathf.Clamp(
+            bookPages[pageIndex].loopStartFrame,
+            0,
+            frames.Length - 1
+        );
+
+        WaitForSeconds delay = new WaitForSeconds(1f / pageFrameRate);
+
+        while (true)
+        {
+            target.sprite = frames[frameIndex];
+            pageFrameIndices[pageIndex] = frameIndex;
+
+            frameIndex++;
+
+            if (frameIndex >= frames.Length)
+            {
+                pageIntroFinished[pageIndex] = true;
+                frameIndex = loopStartFrame;
+            }
+
+            yield return delay;
+        }
     }
 }

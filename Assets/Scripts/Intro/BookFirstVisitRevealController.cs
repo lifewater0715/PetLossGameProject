@@ -141,6 +141,8 @@ public class BookFirstVisitRevealController : MonoBehaviour
             cover.SetDuration(revealDuration);
             cover.SetEndRadius(revealEndRadius);
             cover.ResetToClosed(true);
+
+            book.RestartPageAnimation(slot);
     
             yield return cover.PlayAndWait();
     
@@ -194,6 +196,7 @@ public class BookFirstVisitRevealController : MonoBehaviour
     private void RefreshCover(BookPageSlot slot)
     {
         CenterHoleFadeUI cover = GetCover(slot);
+        
         if (cover == null) return;
 
         int pageIndex = book.GetPageIndex(slot);
@@ -212,6 +215,8 @@ public class BookFirstVisitRevealController : MonoBehaviour
 
         if (_revealingPages.Contains(pageIndex))
             return;
+
+        book.PausePageAnimationAtFirstFrame(slot);
 
         cover.SetDuration(revealDuration);
         cover.SetEndRadius(revealEndRadius);
