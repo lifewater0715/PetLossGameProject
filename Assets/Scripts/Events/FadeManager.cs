@@ -44,12 +44,12 @@ public class FadeManager : MonoBehaviour
 
     public void HalfFadeIn()
     {
-        StartCoroutine(CFadeIn(0.5f, 0f));
+        StartCoroutine(CFadeIn(0.7f, 0f));
     }
 
     public void HalfFadeOut()
     {
-        StartCoroutine(CFadeOut(0f, 0.5f));
+        StartCoroutine(CFadeOut(0f, 0.7f));
     }
 
 
