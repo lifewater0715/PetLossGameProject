@@ -3,11 +3,11 @@ guid: 0c016a564f6205a4fb7199b174711d57
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -698607936636268610
-    second: Tug_Dog_Bottom_0
+      213: -2060568268792857922
+    second: Tug_Dog_Pulled_Bottom_0
   - first:
-      213: 4939752208981777906
-    second: Tug_Dog_Bottom_1
+      213: 1423367088958385641
+    second: Tug_Dog_Pulled_Bottom_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -40,7 +40,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -51,7 +51,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 1
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 210
@@ -103,7 +103,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Tug_Dog_Bottom_0
+      name: Tug_Dog_Pulled_Bottom_0
       rect:
         serializedVersion: 2
         x: 250
@@ -118,14 +118,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ebfc68378cb0e46f0800000000000000
-      internalID: -698607936636268610
+      spriteID: ebaf82fa3146763e0800000000000000
+      internalID: -2060568268792857922
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tug_Dog_Bottom_1
+      name: Tug_Dog_Pulled_Bottom_1
       rect:
         serializedVersion: 2
         x: 428
@@ -140,8 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2fd5fce46768d8440800000000000000
-      internalID: 4939752208981777906
+      spriteID: 9eda85a73d0d0c310800000000000000
+      internalID: 1423367088958385641
       vertices: []
       indices: 
       edges: []
@@ -160,8 +160,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Tug_Dog_Bottom_0: -698607936636268610
-      Tug_Dog_Bottom_1: 4939752208981777906
+      Tug_Dog_Pulled_Bottom_0: -2060568268792857922
+      Tug_Dog_Pulled_Bottom_1: 1423367088958385641
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
