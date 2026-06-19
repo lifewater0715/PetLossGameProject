@@ -373,6 +373,8 @@ MonoBehaviour:
   shampooSystemManager: {fileID: 249337577}
   chargeSlider: {fileID: 17079038}
   decreaseSpeed: 4
+  slowDownStartValue: 0.25
+  minDecreaseSpeedMultiplier: 0.005
 --- !u!1 &74282963
 GameObject:
   m_ObjectHideFlags: 0
