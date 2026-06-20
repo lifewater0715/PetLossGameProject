@@ -20,8 +20,8 @@ public class TugSystemManager : MonoBehaviour
 
     private void Start()
     {
-        BGMManager.Instance.SetFilterMode(BGMManager.AudioLevel.None);
         StartCoroutine(CGameStart());
+        BGMManager.Instance.SetFilterMode(BGMManager.AudioLevel.None);
     }
 
     private IEnumerator CGameStart()
