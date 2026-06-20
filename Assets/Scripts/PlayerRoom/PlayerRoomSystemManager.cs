@@ -43,6 +43,6 @@ public class PlayerRoomSystemManager : MonoBehaviour
     {
         yield return new WaitForSeconds(4f);
         SceneLoadManager.Instance.LoadScene(nextSceneName);
-        BGMManager.Instance.StopSound();
+        //BGMManager.Instance.StopSound();
     }
 }

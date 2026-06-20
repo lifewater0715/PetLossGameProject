@@ -6,10 +6,12 @@ public class BGMManager : MonoBehaviour
     public static BGMManager Instance { get; private set; }
     
     [SerializeField] private float fadeDuration = 1.5f;
+    [SerializeField] private float filterFadeDuration = 1f;
 
     private AudioLowPassFilter lowPassFilter;
     private AudioSource audioSource;
     private Coroutine RunningCoroutine;
+    private Coroutine filterCoroutine;
 
     public enum AudioLevel
     {
@@ -31,7 +33,7 @@ public class BGMManager : MonoBehaviour
 
         lowPassFilter = GetComponent<AudioLowPassFilter>();
         audioSource = GetComponent<AudioSource>();
-        SetFilterMode(AudioLevel.None);
+        SetFilterValues(22000f, 1f);
     }
 
     public void PlaySound(AudioClip audioClip)
@@ -49,6 +51,9 @@ public class BGMManager : MonoBehaviour
     {
         if (RunningCoroutine != null) 
             StopCoroutine(RunningCoroutine);
+
+        if (filterCoroutine != null)
+            StopCoroutine(filterCoroutine);
 
         RunningCoroutine = StartCoroutine(CStopSound());
     }
@@ -73,24 +78,58 @@ public class BGMManager : MonoBehaviour
 
     public void SetFilterMode(AudioLevel audioLevel)
     {
+        float targetCutoffFrequency = 22000f;
+        float targetVolume = 1f;
+
         switch (audioLevel)
         {
             case AudioLevel.None:
-                lowPassFilter.cutoffFrequency = 22000f;
-                audioSource.volume = 1f;
+                targetCutoffFrequency = 22000f;
+                targetVolume = 1f;
                 break;
             case AudioLevel.Low:
-                lowPassFilter.cutoffFrequency = 10000f;
-                audioSource.volume = 0.7f;
+                targetCutoffFrequency = 10000f;
+                targetVolume = 0.7f;
                 break;
             case AudioLevel.Middle:
-                lowPassFilter.cutoffFrequency = 5000f; 
-                audioSource.volume = 0.7f;
+                targetCutoffFrequency = 5000f; 
+                targetVolume = 0.7f;
                 break;
             case AudioLevel.High:
-                lowPassFilter.cutoffFrequency = 600f; 
-                audioSource.volume = 0.7f;
+                targetCutoffFrequency = 600f; 
+                targetVolume = 0.7f;
                 break;
         }
+
+        if (filterCoroutine != null)
+            StopCoroutine(filterCoroutine);
+
+        filterCoroutine = StartCoroutine(CSetFilterMode(targetCutoffFrequency, targetVolume));
+    }
+
+    private IEnumerator CSetFilterMode(float targetCutoffFrequency, float targetVolume)
+    {
+        float startCutoffFrequency = lowPassFilter.cutoffFrequency;
+        float startVolume = audioSource.volume;
+        float timer = 0f;
+
+        while (timer < filterFadeDuration)
+        {
+            timer += Time.deltaTime;
+            float ratio = timer / filterFadeDuration;
+
+            lowPassFilter.cutoffFrequency = Mathf.Lerp(startCutoffFrequency, targetCutoffFrequency, ratio);
+            audioSource.volume = Mathf.Lerp(startVolume, targetVolume, ratio);
+            yield return null;
+        }
+
+        SetFilterValues(targetCutoffFrequency, targetVolume);
+        filterCoroutine = null;
+    }
+
+    private void SetFilterValues(float cutoffFrequency, float volume)
+    {
+        lowPassFilter.cutoffFrequency = cutoffFrequency;
+        audioSource.volume = volume;
     }
 }

@@ -805,9 +805,11 @@ MonoBehaviour:
   shampooDogAnimation: {fileID: 1739930451}
   shampooEffect: {fileID: 1024466094}
   UIGlow: {fileID: 854496289}
-  chargeShampooSpeed: 70
+  chargeShampooSpeed: 15
   chargeShowerSpeed: 15
-  chargeTowelSpeed: 65
+  chargeTowelSpeed: 20
+  rubChargeMultiplier: 0.05
+  maxRubMoveDistance: 0.3
   nextSceneName: PlayerRoom
   cutSceneManager: {fileID: 1815114707}
   shampooUIGuideText: {fileID: 350738833}

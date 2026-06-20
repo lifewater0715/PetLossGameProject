@@ -14,6 +14,7 @@ public class EndingManager : MonoBehaviour
 
     private void Start()
     {
+        BGMManager.Instance.SetFilterMode(BGMManager.AudioLevel.Middle);
         DefaultSetting();
         StartCoroutine(EndingScript());
     }
@@ -25,6 +26,7 @@ public class EndingManager : MonoBehaviour
             _finish = false;
             PropsTurn.Reset();
             BGMManager.Instance.StopSound();
+            BGMManager.Instance.SetFilterMode(BGMManager.AudioLevel.None);
             SceneLoadManager.Instance.LoadScene("TitleScreen");
         }
     }
