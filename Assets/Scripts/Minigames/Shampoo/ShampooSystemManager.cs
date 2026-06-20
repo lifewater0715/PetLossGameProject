@@ -31,6 +31,7 @@ public class ShampooSystemManager : MonoBehaviour
 
     private void Start()
     {
+        BGMManager.Instance.SetFilterMode(BGMManager.AudioLevel.None);
         UIGlow.SetShampooUIHighlight(true);
     }
 

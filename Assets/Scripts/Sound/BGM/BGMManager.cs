@@ -7,8 +7,14 @@ public class BGMManager : MonoBehaviour
     
     [SerializeField] private float fadeDuration = 1.5f;
 
+    private AudioLowPassFilter lowPassFilter;
     private AudioSource audioSource;
     private Coroutine RunningCoroutine;
+
+    public enum AudioLevel
+    {
+        None, Low, Middle, High
+    }
 
     private void Awake()
     {
@@ -23,7 +29,9 @@ public class BGMManager : MonoBehaviour
             return;
         }
 
+        lowPassFilter = GetComponent<AudioLowPassFilter>();
         audioSource = GetComponent<AudioSource>();
+        SetFilterMode(AudioLevel.None);
     }
 
     public void PlaySound(AudioClip audioClip)
@@ -61,5 +69,28 @@ public class BGMManager : MonoBehaviour
         audioSource.Stop();
 
         audioSource.volume = startVolume;
+    }
+
+    public void SetFilterMode(AudioLevel audioLevel)
+    {
+        switch (audioLevel)
+        {
+            case AudioLevel.None:
+                lowPassFilter.cutoffFrequency = 22000f;
+                audioSource.volume = 1f;
+                break;
+            case AudioLevel.Low:
+                lowPassFilter.cutoffFrequency = 10000f;
+                audioSource.volume = 0.7f;
+                break;
+            case AudioLevel.Middle:
+                lowPassFilter.cutoffFrequency = 5000f; 
+                audioSource.volume = 0.7f;
+                break;
+            case AudioLevel.High:
+                lowPassFilter.cutoffFrequency = 600f; 
+                audioSource.volume = 0.7f;
+                break;
+        }
     }
 }

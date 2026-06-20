@@ -22,7 +22,6 @@ public class BookPageColorShiftFade : MonoBehaviour
     private CanvasGroup overlayCanvasGroup;
     private Coroutine playCoroutine;
     private Coroutine frameCoroutine;
-    private bool coldAnimationFinished;
 
     public void PlayOnce()
     {
@@ -170,11 +169,8 @@ public class BookPageColorShiftFade : MonoBehaviour
 
     private IEnumerator CPlayFrames()
     {
-        coldAnimationFinished = false;
-
         if (coldFrames == null || coldFrames.Length == 0)
         {
-            coldAnimationFinished = true;
             yield break;
         }
 
@@ -191,8 +187,7 @@ public class BookPageColorShiftFade : MonoBehaviour
 
         if (overlayImage != null)
             overlayImage.sprite = coldFrames[coldFrames.Length - 1];
-
-        coldAnimationFinished = true;
+            
         frameCoroutine = null;
     }
 
