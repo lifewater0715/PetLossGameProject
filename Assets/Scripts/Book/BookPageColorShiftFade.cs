@@ -79,7 +79,7 @@ public class BookPageColorShiftFade : MonoBehaviour
     
         float frameInterval = 1f / frameRate;
         float frameTimer = 0f;
-        int frameIndex = 0;
+        int frameIndex = GetStartFrameIndex(baseImage.sprite);
     
         overlayImage.sprite = coldFrames[frameIndex];
     
@@ -122,6 +122,20 @@ public class BookPageColorShiftFade : MonoBehaviour
         ClearOverlayOnly();
     
         playCoroutine = null;
+    }
+
+    private int GetStartFrameIndex(Sprite currentSprite)
+    {
+        if (currentSprite == null || coldFrames == null || coldFrames.Length == 0)
+            return 0;
+
+        for (int i = 0; i < coldFrames.Length; i++)
+        {
+            if (coldFrames[i] == currentSprite)
+                return i;
+        }
+
+        return 0;
     }
 
     private void CreateOverlay(Image baseImage)
