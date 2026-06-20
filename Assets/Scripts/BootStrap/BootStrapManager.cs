@@ -68,6 +68,12 @@ public class BootStrapManager : MonoBehaviour
             return false;
         }
 
+        if (BGMManager.Instance == null) 
+        {
+            Debug.Log("BGMManager 누락 감지.");
+            return false;
+        }
+
         //성공적으로 마치셨어요!
         return true;
     }

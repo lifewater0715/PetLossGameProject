@@ -68,12 +68,13 @@ public class IntroSystemManager : MonoBehaviour
 
     public void MoveNextScene()
     {
+        BGMManager.Instance.StopSound();
         SceneLoadManager.Instance.LoadScene(nextSceneName);
     }
 
     private IEnumerator ShowNextSceneBtn()
     {
-        yield return new WaitForSecondsRealtime(showBtnDelay);
+        yield return new WaitForSeconds(showBtnDelay);
         nextSceneBtn.color = new Color(1f, 1f, 1f, 0f);
         nextSceneBtn.gameObject.SetActive(true);
         float alpha = 0f;
