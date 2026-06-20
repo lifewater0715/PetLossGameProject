@@ -9,9 +9,9 @@ public class ShampooSystemManager : MonoBehaviour
     [SerializeField] private ShampooEffect shampooEffect;
     [SerializeField] private ShampooUIGlowHighlightController UIGlow;
 
-    [SerializeField] private float chargeShampooSpeed = 100f;
-    [SerializeField] private float chargeShowerSpeed = 100f;
-    [SerializeField] private float chargeTowelSpeed = 100f;
+    [SerializeField] private float chargeShampooSpeed = 70f;
+    [SerializeField] private float chargeShowerSpeed = 15f;
+    [SerializeField] private float chargeTowelSpeed = 65f;
 
     [SerializeField] private string nextSceneName = "PlayerRoom";
     [SerializeField] private CutSceneManager cutSceneManager;
