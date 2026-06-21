@@ -54,7 +54,7 @@ public class ScnChackManager : MonoBehaviour
             dogRander.flipX = false;
         }
 
-        FadeManager.Instance.FadeOut();
+        FadeManager.Instance.FadeIn();
     }
 
     private void OnClick(bool clickside)
@@ -96,25 +96,39 @@ public class ScnChackManager : MonoBehaviour
     {
         dogAni.SetBool("IsNotWay", true);
 
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(1.5f);
 
         dogAni.SetBool("IsNotWay", false);
 
-        FadeManager.Instance.FadeIn();
+        FadeManager.Instance.FadeOut();
+
+        yield return new WaitForSeconds(1.2f);
+
+        RelodeImg();
+    }
+
+    private IEnumerator Timer()
+    {
+        yield return new WaitForSeconds(0.5f);
+
+        FadeManager.Instance.FadeOut();
+
+        yield return new WaitForSeconds(1.2f);
 
         RelodeImg();
     }
 
     private void GoodWay()
     {
-        FadeManager.Instance.FadeIn();
-        RelodeImg();
+        StartCoroutine(Timer());
+
         Debug.Log("마루쫑긋");
     }
 
     private void BadWay()
     {
         StartCoroutine(NotMyWay());
+
         Debug.Log("마루씨발");
     }
 

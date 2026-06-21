@@ -7,40 +7,53 @@ public class PuzzleData : MonoBehaviour
     [SerializeField] private GameObject startpos;
     [SerializeField] private GameObject endpos;
     [SerializeField] private float retruntime = 0.2f;
-    [SerializeField] private bool onclickend;
-    [SerializeField] private bool onpuzzlefail = false;
+    public bool onpuzzlesuccess = false;
 
+    private bool isOnEndPos;
+    private Coroutine moveCoroutine;
 
     void Start()
     {
     }
 
-    void FixedUpdate()
+    public void ReleasePiece()
     {
-        if (onclickend == true && onpuzzlefail == true)
+        if (onpuzzlesuccess)
         {
-            Debug.Log("퍼즐 실패");
+            return;
+        }
 
-            StartCoroutine(RetrunStartPos(retruntime, gameObject.transform.position, startpos.transform.position));
-            onclickend = false;
+        Vector3 targetPosition = isOnEndPos ? endpos.transform.position : startpos.transform.position;
+
+        if (moveCoroutine != null)
+        {
+            StopCoroutine(moveCoroutine);
+        }
+
+        moveCoroutine = StartCoroutine(RetrunStartPos(retruntime, transform.position, targetPosition));
+
+        if (isOnEndPos)
+        {
+            success();
         }
     }
 
-    public void ClickSet(bool Clickdata)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        onclickend = Clickdata;
-    }
-
-    private void OnTriggerStay2D(Collider2D other)
-    {
-        if (other.gameObject == endpos && onclickend == true)
+        if (other.gameObject == endpos)
         {
-            Debug.Log("클릭 놓음" + other.gameObject.name);
-            StartCoroutine(RetrunStartPos(retruntime, gameObject.transform.position, endpos.transform.position));
+            isOnEndPos = true;
         }
     }
 
-    //퍼즐 무버 쌰갈!
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject == endpos)
+        {
+            isOnEndPos = false;
+        }
+    }
+
     private IEnumerator RetrunStartPos(float retruntime, Vector3 startpos, Vector3 targetpos)
     {
         float timestack = 0f;
@@ -54,5 +67,11 @@ public class PuzzleData : MonoBehaviour
         }
 
         transform.position = targetpos;
+        moveCoroutine = null;
+    }
+
+    private void success()
+    {
+        onpuzzlesuccess = true;
     }
 }
