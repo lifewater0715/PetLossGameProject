@@ -5,6 +5,7 @@ public class IntroInput : MonoBehaviour
     [SerializeField] private Book book;
     [SerializeField] private AutoFlip autoFlip;
     [SerializeField] private BookFirstVisitRevealController revealController;
+    [SerializeField] private int lastPage = 4;
 
     private void Update()
     {
@@ -18,7 +19,7 @@ public class IntroInput : MonoBehaviour
         if (!book.IsPageIntroFinished(currentPage))
             return;
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && currentPage != lastPage)
         {
             Debug.Log("Space 허용");
         
