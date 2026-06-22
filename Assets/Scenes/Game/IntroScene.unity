@@ -782,7 +782,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 1290161958}
   BookPanel: {fileID: 599925341}
-  background: {fileID: 21300000, guid: 3c47abcf3fb3d12408efe3073b2e379f, type: 3}
+  background: {fileID: -5600720240943905430, guid: caa13b2846a681341a2c24dc47b96af7, type: 3}
   bookPages:
   - frames:
     - {fileID: 21300000, guid: 091b36d6e9ffdd146910bffc34c4a98c, type: 3}
