@@ -2,9 +2,15 @@ using System.Collections.Generic;
 using System.IO;
 using SimpleFileBrowser;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ImgLoader : MonoBehaviour
 {
+    private const string TitleSceneName = "TitleScreen";
+    private const string BorderSpriteName = "BorderSprite";
+    private const string BorderImageName = "BorderImage";
+    private const string ConfirmBtnName = "UserImgCutBtn";
+
     [SerializeField] private SpriteRenderer UserspriteRenderer;
     [SerializeField] private SpriteRenderer UserspriteRendereBg;
     [SerializeField] private List<PuzzlePieceSlot> puzzlePieceSlots = new List<PuzzlePieceSlot>();
@@ -23,10 +29,27 @@ public class ImgLoader : MonoBehaviour
     [SerializeField] private bool isEditPaused = false;
     [SerializeField] private bool isImageConfirmed = false;
 
+    //여기서 부턴 내 커스텀 (by byealha)
+    [SerializeField] private GameObject imageCutter;
+    [SerializeField] private GameObject borderSprite;
+    [SerializeField] private GameObject borderImage;
+    [SerializeField] private GameObject confirmBtn;
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
     void Start()
     {
         UserImg = UserspriteRenderer.transform.gameObject;
         UserImgBG = UserspriteRendereBg.transform.gameObject;
+        AssignTitleScreenBorders();
     }
 
     void Update()
@@ -66,6 +89,7 @@ public class ImgLoader : MonoBehaviour
 
         isEditPaused = true;
         Debug.Log("Image edit paused. Press Confirm to save or ESC to continue editing.");
+        confirmBtn.SetActive(true);
     }
 
     public void ResumeImageEdit()
@@ -79,6 +103,7 @@ public class ImgLoader : MonoBehaviour
         UserspriteRendereBg.enabled = true;
         SetPuzzlePiecesVisible(false);
         Debug.Log("Image edit resumed.");
+        confirmBtn.SetActive(false);
     }
 
     [ContextMenu("GG")]
@@ -237,6 +262,20 @@ public class ImgLoader : MonoBehaviour
 
     public void onCancel()
     {
+        AssignTitleScreenBorders();
+
+        imageCutter.SetActive(false);
+
+        if (borderSprite != null)
+        {
+            borderSprite.SetActive(false);
+        }
+
+        if (borderImage != null)
+        {
+            borderImage.SetActive(false);
+        }
+
         Debug.Log("File selection cancelled.");
     }
 
@@ -261,6 +300,37 @@ public class ImgLoader : MonoBehaviour
             }
 
             slot.SetVisible(isVisible);
+        }
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name == TitleSceneName)
+        {
+            AssignTitleScreenBorders();
+        }
+    }
+
+    private void AssignTitleScreenBorders()
+    {
+        if (SceneManager.GetActiveScene().name != TitleSceneName)
+        {
+            return;
+        }
+
+        if (borderSprite == null)
+        {
+            borderSprite = GameObject.Find(BorderSpriteName);
+        }
+
+        if (borderImage == null)
+        {
+            borderImage = GameObject.Find(BorderImageName);
+        }
+
+        if (confirmBtn == null)
+        {
+            confirmBtn = GameObject.Find(ConfirmBtnName);
         }
     }
 }

@@ -106,9 +106,9 @@ TextureImporter:
       name: Leash_Area_After_0
       rect:
         serializedVersion: 2
-        x: 1630
+        x: 1613
         y: 0
-        width: 2210
+        width: 2227
         height: 862
       alignment: 0
       pivot: {x: 0, y: 0}

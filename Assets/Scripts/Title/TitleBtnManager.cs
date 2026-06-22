@@ -7,11 +7,11 @@ public class TitleBtnManager : MonoBehaviour
     public void GameStartBtn()
     {
         SceneLoadManager.Instance.LoadScene(nextSceneName);
+        BGMManager.Instance.StopSound();
     }
 
     public void GameQuitBtn()
     {
         Application.Quit();
     }
-
 }

@@ -130,10 +130,10 @@ TextureImporter:
       name: Shampoo_Area_After_0
       rect:
         serializedVersion: 2
-        x: 1142
-        y: 1759
-        width: 189
-        height: 170
+        x: 1146
+        y: 1756
+        width: 169
+        height: 171
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,9 +152,9 @@ TextureImporter:
       name: Shampoo_Area_After_1
       rect:
         serializedVersion: 2
-        x: 1442
+        x: 1441
         y: 1036
-        width: 589
+        width: 599
         height: 833
       alignment: 0
       pivot: {x: 0, y: 0}

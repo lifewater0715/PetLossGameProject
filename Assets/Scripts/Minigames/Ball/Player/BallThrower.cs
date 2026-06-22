@@ -3,8 +3,10 @@ using UnityEngine;
 public class BallThrower : MonoBehaviour
 {
     [SerializeField] private BallThrowController ballThrowController;
+    [SerializeField] private BallSystemManager ballSystemManager;
     [SerializeField] private Transform throwPoint;
     [SerializeField] private Rigidbody2D ballRigid;
+    [SerializeField] private SFXAudio dogSound;
 
     [SerializeField] private float spinPower = -720f;
 
@@ -40,6 +42,7 @@ public class BallThrower : MonoBehaviour
     private void Throw(float power)
     {
         ballThrowController.SetCanThrow(false);
+        if (ballSystemManager.Turn != 1) dogSound.PlaySound();
 
         ballRigid.gameObject.SetActive(true);
         ballRigid.transform.position = throwPoint.position;

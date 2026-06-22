@@ -1,8 +1,10 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerRoomSystemManager : MonoBehaviour
 {
     [SerializeField] private PropsGlowHighlightController glow;
+    [SerializeField] private string nextSceneName = "Ending";
 
     private void Start()
     {
@@ -18,16 +20,30 @@ public class PlayerRoomSystemManager : MonoBehaviour
                 break;
             case 2:
                 glow.SetBallHighlight(true);
+                BGMManager.Instance.SetFilterMode(BGMManager.AudioLevel.VeryHigh);
                 break;
             case 3:
                 glow.SetTugHighlight(true);
+                BGMManager.Instance.SetFilterMode(BGMManager.AudioLevel.High);
                 break;
             case 4:
                 glow.SetLeashHighlight(true);
+                BGMManager.Instance.SetFilterMode(BGMManager.AudioLevel.Middle);
                 break;
             case 5:
                 glow.SetShampooHighlight(true);
+                BGMManager.Instance.SetFilterMode(BGMManager.AudioLevel.Low);
+                break;
+            case 6:
+                StartCoroutine(MoveEndingScene());
                 break;
         }
+    }
+
+    private IEnumerator MoveEndingScene()
+    {
+        yield return new WaitForSeconds(4f);
+        SceneLoadManager.Instance.LoadScene(nextSceneName);
+        //BGMManager.Instance.StopSound();
     }
 }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PropsInteractor : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class PropsInteractor : MonoBehaviour
         
         if (Input.GetMouseButtonDown(0))
         {
+            if (EventSystem.current.IsPointerOverGameObject()) return;
             TryInteraction();
         }
     }

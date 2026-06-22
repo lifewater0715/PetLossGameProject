@@ -14,9 +14,15 @@ public class BallSystemManager : MonoBehaviour
 
     [SerializeField] private CutSceneManager cutSceneManager;
 
-    [Header("턴")]
-    [SerializeField] private int turn = 0;
     [SerializeField] private string nextSceneName = "PlayerRoom";
+
+    private int turn = 0;
+    public int Turn => turn;
+
+    private void Start()
+    {
+        BGMManager.Instance.SetFilterMode(BGMManager.AudioLevel.None);
+    }
 
     public void DogPositionReset()
     {

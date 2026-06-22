@@ -61,10 +61,16 @@ public class BootStrapManager : MonoBehaviour
             return false;
         }
 
-        ResolutionLock resolutionLock = FindFirstObjectByType<ResolutionLock>();
+        /*ResolutionLock resolutionLock = FindFirstObjectByType<ResolutionLock>();
         if (resolutionLock == null) 
         {
             Debug.Log("ResolutionLock 누락 감지.");
+            return false;
+        }*/
+
+        if (BGMManager.Instance == null) 
+        {
+            Debug.Log("BGMManager 누락 감지.");
             return false;
         }
 

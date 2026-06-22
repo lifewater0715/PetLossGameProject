@@ -13,7 +13,7 @@ public class PictureEvent : MonoBehaviour, IPropsEvent
     private IEnumerator CEventStart()
     {
         Debug.Log("그림 상호작용");
-        //SceneLoadManager.Instance.LoadScene(loadSceneName);
+        SceneLoadManager.Instance.LoadScene(loadSceneName);
         yield return null;
     }
 }

@@ -108,8 +108,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 392
-        height: 176
+        width: 391
+        height: 168
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,10 +128,10 @@ TextureImporter:
       name: Ball_Area_After_1
       rect:
         serializedVersion: 2
-        x: 312
+        x: 297
         y: 0
-        width: 1667
-        height: 696
+        width: 1682
+        height: 658
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

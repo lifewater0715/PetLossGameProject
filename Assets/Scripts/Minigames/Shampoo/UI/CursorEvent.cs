@@ -7,6 +7,7 @@ public class CursorEvent : MonoBehaviour
     [SerializeField] private float minMoveDistance = 0.15f;
 
     public event Action OnRubbed;
+    public event Action<float> OnRubbedDistance;
     public event Action OnRubbedStop;
     public event Action OnHeldOnDog;
     public event Action OnHeldOnDogStop;
@@ -65,6 +66,7 @@ public class CursorEvent : MonoBehaviour
         if (moveDistance >= minMoveDistance)
         {
             OnRubbed?.Invoke();
+            OnRubbedDistance?.Invoke(moveDistance);
 
             _prevMouseWorldPos = currentMouseWorldPos;
         }

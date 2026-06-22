@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4275706102728592700}
   - component: {fileID: 2682608258920059123}
+  - component: {fileID: -6224229928124869559}
   m_Layer: 0
   m_Name: puzzle1
   m_TagString: Untagged
@@ -91,3 +92,22 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-6224229928124869559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1641938674214821844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1c339a65ba82dc4fa58fca8c6accea1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ImgLoader
+  UserspriteRenderer: {fileID: 0}
+  UserspriteRendereBg: {fileID: 0}
+  puzzlePieceSlots: []
+  applyMaskPiecesOnConfirm: 1
+  ImgCutteMod: 0
+  isEditPaused: 0
+  isImageConfirmed: 0

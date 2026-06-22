@@ -13,7 +13,7 @@ public class LeashEvent : MonoBehaviour, IPropsEvent
     private IEnumerator CEventStart()
     {
         Debug.Log("개 목줄 상호작용");
-        //SceneLoadManager.Instance.LoadScene(loadSceneName);
+        SceneLoadManager.Instance.LoadScene(loadSceneName);
         yield return null;
     }
 }
