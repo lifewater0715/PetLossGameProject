@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PuzzleManager : MonoBehaviour
 {
+    [SerializeField] private string nextSceneName = "PlayerRoom";
+
     [Header("PuzzleData")]
     [SerializeField] private Camera mainCamera;
 
@@ -17,6 +19,8 @@ public class PuzzleManager : MonoBehaviour
     [SerializeField] private GameObject nextpuzzle2;
     [SerializeField] private GameObject Finpuzzle;
 
+    [SerializeField] private PictureSystemManager systemManager;
+    [SerializeField] private PictureUIGuideText uiGuideText;
 
     private RaycastHit2D hit;
     private GameObject grabbedTarget;
@@ -84,6 +88,7 @@ public class PuzzleManager : MonoBehaviour
             if (hit.collider != null && hit.collider.tag == "Puzzle")
             {
                 //Debug.Log("Hit: " + hit.collider.gameObject.name);
+                uiGuideText.StopGuide();
                 grabbedTarget = hit.collider.gameObject;
                 puzzleData = hit.collider.GetComponent<PuzzleData>();
             }
@@ -154,17 +159,18 @@ public class PuzzleManager : MonoBehaviour
 
         FadeManager.Instance.FadeIn();
         Finpuzzle.SetActive(true);
-        yield return new WaitForSeconds(1.2f);
-
-        FadeManager.Instance.FadeOut();
-        yield return new WaitForSeconds(1.2f);
+        
 
         if (nextpuzzle == null && nextpuzzle2 == null)
         {
+            yield return new WaitForSeconds(4f);
             puzzleEnd();
         }
         else
         {
+            yield return new WaitForSeconds(3f);
+            FadeManager.Instance.FadeOut();
+            yield return new WaitForSeconds(1.2f);
             if (PuzzleUI.TextruAP.GetComponent<SpriteRenderer>().sprite != null && nextpuzzle2 != null)
             {
                 nextpuzzle2.SetActive(true);
@@ -173,16 +179,13 @@ public class PuzzleManager : MonoBehaviour
             {
                 nextpuzzle.SetActive(true);
             }
+            FadeManager.Instance.FadeIn();
+            gameObject.SetActive(false);
         }
-        FadeManager.Instance.FadeIn();
-        gameObject.SetActive(false);
-        yield return new WaitForSeconds(0.5f);
-
-
     }
 
     private void puzzleEnd()
     {
-
+        SceneLoadManager.Instance.LoadScene(nextSceneName);
     }
 }
