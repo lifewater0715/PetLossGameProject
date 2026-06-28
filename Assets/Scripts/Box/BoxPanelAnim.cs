@@ -9,6 +9,8 @@ public class BoxPanelAnim : MonoBehaviour
     [SerializeField] private RectTransform originalPos;
     [SerializeField] private float moveDuration = 0.3f;
     [SerializeField] private CutSceneRemind cutSceneRemind;
+    [SerializeField] private PlayerRoomSpotlight spotlight;
+    [SerializeField] private PlayerRoomTutorialUIGuideText guideText;
 
     private BoxUIBtn boxUIBtn;
     private RectTransform rectTransform;
@@ -16,6 +18,7 @@ public class BoxPanelAnim : MonoBehaviour
 
     private bool _active = false;
     private bool _duration = false;
+    private bool canAccessBox = false;
 
     private void Awake()
     {
@@ -26,17 +29,43 @@ public class BoxPanelAnim : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Tab) && !_active && !_duration && !cutSceneRemind.NowShowing)
+        if (Input.GetKeyDown(KeyCode.Tab) && !_active && !_duration && !cutSceneRemind.NowShowing && canAccessBox)
         {
-            PlayMoveToTargetPos();
+            BeginPannel();
         }
 
         if ((Input.GetKeyDown(KeyCode.Tab) 
-        || Input.GetKeyDown(KeyCode.Escape)) && _active && !_duration && !cutSceneRemind.NowShowing)
+        || Input.GetKeyDown(KeyCode.Escape)) && _active && !_duration && !cutSceneRemind.NowShowing && canAccessBox)
         {
-            cutSceneRemind.SetPropsNone();
-            PlayMoveToOriginalPos();
+            QuitPannel();
         }
+    }
+
+    public void OnShowBtn()
+    {
+        BeginPannel();
+    }
+
+    public void OnQuitBtn()
+    {
+        QuitPannel();
+    }
+
+    private void BeginPannel()
+    {
+        PlayMoveToTargetPos();
+        
+        if (spotlight.Tutorial) 
+        {
+            guideText.StopGuide();
+            spotlight.StopSpotlight();
+        }
+    }
+
+    private void QuitPannel()
+    {
+        cutSceneRemind.SetPropsNone();
+        PlayMoveToOriginalPos();
     }
 
     public void PlayMoveToTargetPos()
@@ -85,4 +114,6 @@ public class BoxPanelAnim : MonoBehaviour
         _duration = false;
         moveCoroutine = null;
     }
+
+    public void SetCanAccessBox(bool value) { canAccessBox = value; }
 }

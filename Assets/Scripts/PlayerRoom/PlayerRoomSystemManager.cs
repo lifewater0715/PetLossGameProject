@@ -4,7 +4,10 @@ using UnityEngine;
 public class PlayerRoomSystemManager : MonoBehaviour
 {
     [SerializeField] private PropsGlowHighlightController glow;
+    [SerializeField] private PlayerRoomSpotlight spotlight;
+    [SerializeField] private GameObject gaurdImage;
     [SerializeField] private string nextSceneName = "Ending";
+    [SerializeField] private BoxPanelAnim boxPanelAnim;
 
     private void Start()
     {
@@ -21,6 +24,7 @@ public class PlayerRoomSystemManager : MonoBehaviour
             case 2:
                 glow.SetBallHighlight(true);
                 BGMManager.Instance.SetFilterMode(BGMManager.AudioLevel.VeryHigh);
+                spotlight.PlaySpotlight();
                 break;
             case 3:
                 glow.SetTugHighlight(true);
@@ -37,6 +41,12 @@ public class PlayerRoomSystemManager : MonoBehaviour
             case 6:
                 StartCoroutine(MoveEndingScene());
                 break;
+        }
+
+        if (PropsTurn.Turn > 2) 
+        {
+            boxPanelAnim.SetCanAccessBox(true);
+            gaurdImage.SetActive(false);
         }
     }
 

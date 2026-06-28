@@ -29,7 +29,7 @@ public class ScnChackManager : MonoBehaviour
     [Header("폴리싱 및 버그 완화 작업")]
     [SerializeField] private GameObject dontClickArea;
     [SerializeField] private LeashUIGuideText uiGuideText;
-    
+    private Coroutine cutSceneCoroutine;
 
     [System.Serializable]
     public struct SanChackData
@@ -48,6 +48,12 @@ public class ScnChackManager : MonoBehaviour
     void Update()
     {
 
+    }
+
+    private void OnDisable()
+    {
+        StopCoroutine(cutSceneCoroutine);
+        cutSceneCoroutine = null;
     }
 
     private void RelodeImg()
@@ -70,12 +76,16 @@ public class ScnChackManager : MonoBehaviour
 
     private void OnClick(bool clickside)
     {
+        if (FadeManager.Instance != null && FadeManager.Instance.IsFading) return;
         //Debug.Log("OnClicked Side : " + clickside);
+
+        if (cutSceneCoroutine != null) return;
+
         if (SanChackNum >= SanChackList.Count - 1)
         {
             if (clickside == SanChackList[SanChackNum].IsRight)
             {
-                StartCoroutine(ShowCutScene());
+                cutSceneCoroutine = StartCoroutine(ShowCutScene());
                 return;
             }
             else

@@ -1543,7 +1543,7 @@ GameObject:
   - component: {fileID: 1036307029}
   - component: {fileID: 1036307028}
   m_Layer: 5
-  m_Name: Text (TMP) (1)
+  m_Name: VersionText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1588,7 +1588,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: v 0.1
+  m_text: v 0.2
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d484a7135c405f94fbe56e7689e564a3, type: 2}
   m_sharedMaterial: {fileID: 1413368987348896433, guid: d484a7135c405f94fbe56e7689e564a3, type: 2}
@@ -2333,7 +2333,7 @@ GameObject:
   - component: {fileID: 1438744284}
   - component: {fileID: 1438744283}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: CopyrightText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
