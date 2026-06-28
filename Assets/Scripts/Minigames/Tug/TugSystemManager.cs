@@ -14,6 +14,7 @@ public class TugSystemManager : MonoBehaviour
     public bool GameStart => gameStart;
 
     private float score;
+    public float NormalizedCharged => Mathf.Clamp01(score / 100f);
     private bool isCleared;
 
     [SerializeField] private string nextSceneName = "PlayerRoom";
