@@ -13,6 +13,11 @@ public class BootStrapManager : MonoBehaviour
 
     private Coroutine LoadingAnim;
 
+    private void Awake()
+    {
+        GlobalFontManager.EnsureExists();
+    }
+
     private void Start()
     {
         StartCoroutine(StartBootStrap());
