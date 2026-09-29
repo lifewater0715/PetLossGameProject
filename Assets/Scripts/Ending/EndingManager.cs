@@ -27,6 +27,7 @@ public class EndingManager : MonoBehaviour
             PropsTurn.Reset();
             BGMManager.Instance.StopSound();
             BGMManager.Instance.SetFilterMode(BGMManager.AudioLevel.None);
+            GlobalFontManager.Instance?.RestoreOriginalFonts();
             SceneLoadManager.Instance.LoadScene("TitleScreen");
         }
     }

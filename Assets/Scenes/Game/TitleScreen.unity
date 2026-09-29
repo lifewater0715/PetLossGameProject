@@ -303,7 +303,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TitleManager
   confirmBtn: {fileID: 232596984}
-  globalFont: {fileID: 11400000, guid: a4a6af5f9a53c6444a88eec598234962, type: 2}
+  globalFont: {fileID: 11400000, guid: ca16a3e2c9caf2f4aad4040955e33370, type: 2}
 --- !u!114 &168513030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1492,7 +1492,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 34, y: 0}
+  m_AnchoredPosition: {x: 39.4, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &905481110
@@ -1517,8 +1517,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uC811\uADFC\uC131 \uC0AC\uC6A9"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a4a6af5f9a53c6444a88eec598234962, type: 2}
-  m_sharedMaterial: {fileID: 5527072160968228792, guid: a4a6af5f9a53c6444a88eec598234962, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ca16a3e2c9caf2f4aad4040955e33370, type: 2}
+  m_sharedMaterial: {fileID: -3236203297924683370, guid: ca16a3e2c9caf2f4aad4040955e33370, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1542,8 +1542,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 46
-  m_fontSizeBase: 46
+  m_fontSize: 47.78
+  m_fontSizeBase: 47.78
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1705,8 +1705,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 439, y: 33}
-  m_SizeDelta: {x: 840, y: 50}
+  m_AnchoredPosition: {x: 500, y: 29}
+  m_SizeDelta: {x: 1000, y: 58}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1036307028
 MonoBehaviour:
@@ -1728,7 +1728,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: v 0.2
+  m_text: v 0.2.1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d484a7135c405f94fbe56e7689e564a3, type: 2}
   m_sharedMaterial: {fileID: 1413368987348896433, guid: d484a7135c405f94fbe56e7689e564a3, type: 2}
@@ -1763,7 +1763,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 1024
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_characterHorizontalScale: 1
@@ -2511,8 +2511,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -429, y: 33}
-  m_SizeDelta: {x: 840, y: 50}
+  m_AnchoredPosition: {x: -790.47754, y: 29}
+  m_SizeDelta: {x: 1580.9551, y: 58}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1438744283
 MonoBehaviour:
@@ -2569,7 +2569,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 4
-  m_VerticalAlignment: 1024
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_characterHorizontalScale: 1

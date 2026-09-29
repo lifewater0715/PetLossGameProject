@@ -77,12 +77,15 @@ public sealed class HighContrastText : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (!refreshRequested)
-            return;
-
         // Canvas 재빌드 중에는 Graphic의 크기나 활성 상태를 변경할 수 없습니다.
         if (CanvasUpdateRegistry.IsRebuildingLayout() ||
             CanvasUpdateRegistry.IsRebuildingGraphics())
+            return;
+
+        if (highContrastEnabled)
+            EnsureHighContrastTextColor();
+
+        if (!refreshRequested)
             return;
 
         refreshRequested = false;
@@ -107,6 +110,24 @@ public sealed class HighContrastText : MonoBehaviour
         Color nextColor = useHighContrastColor ? Color.white : originalTextColor;
         nextColor.a = currentAlpha;
         targetText.color = nextColor;
+    }
+
+    private void EnsureHighContrastTextColor()
+    {
+        if (targetText == null)
+            return;
+
+        Color currentColor = targetText.color;
+        if (Mathf.Approximately(currentColor.r, 1f) &&
+            Mathf.Approximately(currentColor.g, 1f) &&
+            Mathf.Approximately(currentColor.b, 1f))
+            return;
+
+        // 다른 페이드 연출이 RGB를 덮어써도 알파값은 유지한 채 흰색으로 복구합니다.
+        currentColor.r = 1f;
+        currentColor.g = 1f;
+        currentColor.b = 1f;
+        targetText.color = currentColor;
     }
 
     private void EnsureBackground()

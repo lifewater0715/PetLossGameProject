@@ -14,6 +14,8 @@ public sealed class GlobalFontManager : MonoBehaviour
     private static readonly Vector2 TextAreaPadding = new Vector2(80f, 30f);
     private const float MaxTextAreaWidth = 1600f;
     private readonly HashSet<TMP_Text> pendingTextUpdates = new HashSet<TMP_Text>();
+    private readonly Dictionary<TMP_Text, TMP_FontAsset> originalFonts =
+        new Dictionary<TMP_Text, TMP_FontAsset>();
 
     public static GlobalFontManager Instance { get; private set; }
 
@@ -73,6 +75,24 @@ public sealed class GlobalFontManager : MonoBehaviour
 
         CurrentFont = font;
         ApplyFontToLoadedTexts();
+    }
+
+    /// <summary>
+    /// 전역 폰트 적용 전에 각 텍스트가 사용하던 원본 폰트로 되돌립니다.
+    /// 이후 로드되는 씬에는 전역 폰트를 더 이상 강제로 적용하지 않습니다.
+    /// </summary>
+    public void RestoreOriginalFonts()
+    {
+        CurrentFont = null;
+        pendingTextUpdates.Clear();
+
+        foreach (KeyValuePair<TMP_Text, TMP_FontAsset> entry in originalFonts)
+        {
+            if (entry.Key != null && entry.Value != null)
+                entry.Key.font = entry.Value;
+        }
+
+        originalFonts.Clear();
     }
 
     /// <summary>
@@ -145,7 +165,13 @@ public sealed class GlobalFontManager : MonoBehaviour
 
     private void ApplyFont(TMP_Text text)
     {
-        if (text != null && text.font != CurrentFont)
+        if (text == null || CurrentFont == null)
+            return;
+
+        if (!originalFonts.ContainsKey(text))
+            originalFonts.Add(text, text.font);
+
+        if (text.font != CurrentFont)
             text.font = CurrentFont;
     }
 

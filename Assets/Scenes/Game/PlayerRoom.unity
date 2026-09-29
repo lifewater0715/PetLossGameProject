@@ -572,8 +572,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 271, y: 219}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 270, y: 212.51}
+  m_SizeDelta: {x: 201.1668, y: 56.9719}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &66992998
 MonoBehaviour:
@@ -1128,6 +1128,7 @@ GameObject:
   - component: {fileID: 124772380}
   - component: {fileID: 124772382}
   - component: {fileID: 124772381}
+  - component: {fileID: 124772383}
   m_Layer: 5
   m_Name: LeashText
   m_TagString: Untagged
@@ -1254,6 +1255,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 124772379}
   m_CullTransparentMesh: 1
+--- !u!114 &124772383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124772379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6193625d311420ab92e266696cd2dc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HighContrastText
+  background: {fileID: 0}
+  backgroundColor: {r: 0, g: 0, b: 0, a: 0.85}
+  padding: {x: 30, y: 15}
 --- !u!1 &140088432
 GameObject:
   m_ObjectHideFlags: 0
@@ -1837,8 +1853,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 271, y: 219}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 275, y: 214}
+  m_SizeDelta: {x: 201.1668, y: 56.9719}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &306446802
 MonoBehaviour:
@@ -3084,8 +3100,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 261, y: 215}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 267, y: 212}
+  m_SizeDelta: {x: 201.1668, y: 56.9719}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &679343441
 MonoBehaviour:
@@ -3198,6 +3214,7 @@ GameObject:
   - component: {fileID: 690342489}
   - component: {fileID: 690342491}
   - component: {fileID: 690342490}
+  - component: {fileID: 690342492}
   m_Layer: 5
   m_Name: BallText
   m_TagString: Untagged
@@ -3324,6 +3341,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 690342488}
   m_CullTransparentMesh: 1
+--- !u!114 &690342492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 690342488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6193625d311420ab92e266696cd2dc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HighContrastText
+  background: {fileID: 0}
+  backgroundColor: {r: 0, g: 0, b: 0, a: 0.85}
+  padding: {x: 30, y: 15}
 --- !u!1 &757890309
 GameObject:
   m_ObjectHideFlags: 0
@@ -4630,6 +4662,7 @@ GameObject:
   - component: {fileID: 1094650884}
   - component: {fileID: 1094650886}
   - component: {fileID: 1094650885}
+  - component: {fileID: 1094650887}
   m_Layer: 5
   m_Name: ShampooText
   m_TagString: Untagged
@@ -4756,6 +4789,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1094650883}
   m_CullTransparentMesh: 1
+--- !u!114 &1094650887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1094650883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6193625d311420ab92e266696cd2dc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HighContrastText
+  background: {fileID: 0}
+  backgroundColor: {r: 0, g: 0, b: 0, a: 0.85}
+  padding: {x: 30, y: 15}
 --- !u!1 &1117343811
 GameObject:
   m_ObjectHideFlags: 0
@@ -6674,8 +6722,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 271, y: 219}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 268, y: 214}
+  m_SizeDelta: {x: 201.1668, y: 56.9719}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1594663317
 MonoBehaviour:
@@ -6788,6 +6836,7 @@ GameObject:
   - component: {fileID: 1606602031}
   - component: {fileID: 1606602033}
   - component: {fileID: 1606602032}
+  - component: {fileID: 1606602034}
   m_Layer: 5
   m_Name: TugText
   m_TagString: Untagged
@@ -6914,6 +6963,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1606602030}
   m_CullTransparentMesh: 1
+--- !u!114 &1606602034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1606602030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6193625d311420ab92e266696cd2dc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HighContrastText
+  background: {fileID: 0}
+  backgroundColor: {r: 0, g: 0, b: 0, a: 0.85}
+  padding: {x: 30, y: 15}
 --- !u!1 &1661333414
 GameObject:
   m_ObjectHideFlags: 0
@@ -8457,8 +8521,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 271, y: 219}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 277, y: 214}
+  m_SizeDelta: {x: 201.1668, y: 56.9719}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1950541193
 MonoBehaviour:
