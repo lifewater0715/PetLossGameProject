@@ -25,7 +25,7 @@ public class TextFade : MonoBehaviour
     private IEnumerator CStartGuideText(
         float startAlpha, float endAlpha, TMP_Text targetText)
     {
-        targetText.color = new Color(1f, 0.5f, 0f, startAlpha);
+        targetText.color = new Color(targetText.color.r, targetText.color.g, targetText.color.b, startAlpha);
         float alpha = startAlpha;
         float originalAlpha = targetText.color.a;
 
@@ -35,14 +35,14 @@ public class TextFade : MonoBehaviour
             {
                 alpha += 0.01f;
                 yield return new WaitForSecondsRealtime(0.01f);
-                targetText.color = new Color(1f, 0.5f, 0f, alpha);
+                targetText.color = new Color(targetText.color.r, targetText.color.g, targetText.color.b, alpha);
             }
 
             while (alpha > originalAlpha)
             {
                 alpha -= 0.01f;
                 yield return new WaitForSecondsRealtime(0.01f);
-                targetText.color = new Color(1f, 0.5f, 0f, alpha);
+                targetText.color = new Color(targetText.color.r, targetText.color.g, targetText.color.b, alpha);
             }
         }
 

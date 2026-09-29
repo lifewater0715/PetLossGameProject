@@ -1,7 +1,9 @@
 using System;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 /// <summary>
 /// 게임 전체에서 사용하는 TMP 폰트를 관리합니다.
@@ -11,6 +13,7 @@ public sealed class GlobalFontManager : MonoBehaviour
 {
     private static readonly Vector2 TextAreaPadding = new Vector2(80f, 30f);
     private const float MaxTextAreaWidth = 1600f;
+    private readonly HashSet<TMP_Text> pendingTextUpdates = new HashSet<TMP_Text>();
 
     public static GlobalFontManager Instance { get; private set; }
 
@@ -99,8 +102,29 @@ public sealed class GlobalFontManager : MonoBehaviour
         if (CurrentFont == null || changedObject is not TMP_Text text)
             return;
 
-        ApplyFont(text);
-        ExpandTextAreaToFit(text);
+        // TMP 이벤트는 Canvas 그래픽 재빌드 도중에도 발생하므로 실제 변경은 지연합니다.
+        pendingTextUpdates.Add(text);
+    }
+
+    private void LateUpdate()
+    {
+        if (pendingTextUpdates.Count == 0 ||
+            CanvasUpdateRegistry.IsRebuildingLayout() ||
+            CanvasUpdateRegistry.IsRebuildingGraphics())
+            return;
+
+        TMP_Text[] texts = new TMP_Text[pendingTextUpdates.Count];
+        pendingTextUpdates.CopyTo(texts);
+        pendingTextUpdates.Clear();
+
+        foreach (TMP_Text text in texts)
+        {
+            if (text == null)
+                continue;
+
+            ApplyFont(text);
+            ExpandTextAreaToFit(text);
+        }
     }
 
     private void ApplyFontToLoadedTexts()

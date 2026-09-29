@@ -1951,6 +1951,7 @@ GameObject:
   - component: {fileID: 353610170}
   - component: {fileID: 353610172}
   - component: {fileID: 353610171}
+  - component: {fileID: 353610173}
   m_Layer: 5
   m_Name: GuideText
   m_TagString: Untagged
@@ -2077,6 +2078,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 353610169}
   m_CullTransparentMesh: 1
+--- !u!114 &353610173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 353610169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6193625d311420ab92e266696cd2dc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HighContrastText
+  background: {fileID: 0}
+  backgroundColor: {r: 0, g: 0, b: 0, a: 0.85}
+  padding: {x: 30, y: 15}
 --- !u!1 &387923272
 GameObject:
   m_ObjectHideFlags: 0
@@ -5979,6 +5995,7 @@ GameObject:
   - component: {fileID: 1396964231}
   - component: {fileID: 1396964233}
   - component: {fileID: 1396964232}
+  - component: {fileID: 1396964234}
   m_Layer: 5
   m_Name: TutorialText
   m_TagString: Untagged
@@ -6106,6 +6123,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1396964230}
   m_CullTransparentMesh: 1
+--- !u!114 &1396964234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1396964230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6193625d311420ab92e266696cd2dc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HighContrastText
+  background: {fileID: 0}
+  backgroundColor: {r: 0, g: 0, b: 0, a: 0.85}
+  padding: {x: 30, y: 15}
 --- !u!1 &1424505014
 GameObject:
   m_ObjectHideFlags: 0

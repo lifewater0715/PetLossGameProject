@@ -305,6 +305,7 @@ GameObject:
   - component: {fileID: 395051406}
   - component: {fileID: 395051408}
   - component: {fileID: 395051407}
+  - component: {fileID: 395051409}
   m_Layer: 5
   m_Name: GuideText
   m_TagString: Untagged
@@ -432,6 +433,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 395051405}
   m_CullTransparentMesh: 1
+--- !u!114 &395051409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 395051405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6193625d311420ab92e266696cd2dc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HighContrastText
+  background: {fileID: 0}
+  backgroundColor: {r: 0, g: 0, b: 0, a: 0.85}
+  padding: {x: 30, y: 15}
 --- !u!1 &444182095
 GameObject:
   m_ObjectHideFlags: 0

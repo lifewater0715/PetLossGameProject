@@ -16,13 +16,18 @@ public sealed class HighContrastText : MonoBehaviour
 
     private TMP_Text targetText;
     private GlobalFontManager fontManager;
+    private Color originalTextColor;
     private bool ownsBackground;
     private bool highContrastEnabled;
     private bool isRefreshing;
+    private bool refreshRequested;
+
+    public bool IsHighContrastEnabled => highContrastEnabled;
 
     private void Awake()
     {
         targetText = GetComponent<TMP_Text>();
+        originalTextColor = targetText.color;
     }
 
     private void OnEnable()
@@ -60,21 +65,48 @@ public sealed class HighContrastText : MonoBehaviour
 
     private void OnRectTransformDimensionsChange()
     {
-        if (Application.isPlaying && highContrastEnabled)
-            RefreshBackground();
+        if (Application.isPlaying && highContrastEnabled && !isRefreshing)
+            RequestRefresh();
     }
 
     private void OnTextChanged(Object changedObject)
     {
-        if (changedObject == targetText && highContrastEnabled)
-            RefreshBackground();
+        if (changedObject == targetText && highContrastEnabled && !isRefreshing)
+            RequestRefresh();
+    }
+
+    private void LateUpdate()
+    {
+        if (!refreshRequested)
+            return;
+
+        // Canvas 재빌드 중에는 Graphic의 크기나 활성 상태를 변경할 수 없습니다.
+        if (CanvasUpdateRegistry.IsRebuildingLayout() ||
+            CanvasUpdateRegistry.IsRebuildingGraphics())
+            return;
+
+        refreshRequested = false;
+        RefreshBackground();
     }
 
     private void SetHighContrast(bool enabled)
     {
         highContrastEnabled = enabled;
+        ApplyTextColor(enabled);
         EnsureBackground();
-        RefreshBackground();
+        RequestRefresh();
+    }
+
+    private void ApplyTextColor(bool useHighContrastColor)
+    {
+        if (targetText == null)
+            return;
+
+        // 페이드 진행 중의 알파값은 유지하고 RGB 값만 변경합니다.
+        float currentAlpha = targetText.color.a;
+        Color nextColor = useHighContrastColor ? Color.white : originalTextColor;
+        nextColor.a = currentAlpha;
+        targetText.color = nextColor;
     }
 
     private void EnsureBackground()
@@ -84,9 +116,10 @@ public sealed class HighContrastText : MonoBehaviour
 
         GameObject backgroundObject = new GameObject(
             $"{gameObject.name}_HighContrastBackground",
-            typeof(RectTransform),
-            typeof(CanvasRenderer),
-            typeof(Image));
+            typeof(RectTransform));
+        backgroundObject.SetActive(false);
+        backgroundObject.AddComponent<CanvasRenderer>();
+        background = backgroundObject.AddComponent<Image>();
 
         RectTransform textRect = targetText.rectTransform;
         RectTransform backgroundRect = backgroundObject.GetComponent<RectTransform>();
@@ -94,9 +127,13 @@ public sealed class HighContrastText : MonoBehaviour
         CopyRectTransform(textRect, backgroundRect);
         backgroundRect.SetSiblingIndex(textRect.GetSiblingIndex());
 
-        background = backgroundObject.GetComponent<Image>();
         background.raycastTarget = false;
         ownsBackground = true;
+    }
+
+    private void RequestRefresh()
+    {
+        refreshRequested = true;
     }
 
     private void RefreshBackground()
